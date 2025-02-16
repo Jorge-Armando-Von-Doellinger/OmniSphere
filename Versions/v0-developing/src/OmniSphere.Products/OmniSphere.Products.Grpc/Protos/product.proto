@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";     
+
+option csharp_namespace = "OmniSphere.Products.Grpc";
+
+service GrpcProductServices {
+    rpc GetProducts (google.protobuf.Empty) returns (GetListProductProtoModel);    
+    rpc GetProductsByName(ProductName) returns (GetListProductProtoModel);
+    rpc GetProductByCode(ProductCode) returns (ProductProtoModel);
+    rpc GetProductById(ProductId) returns (ProductProtoModel);
+    rpc AddProduct(ProductProtoModel) returns (google.protobuf.Empty);
+    rpc UpdateProduct(ProductProtoModel) returns (google.protobuf.Empty);
+    rpc DeleteProduct(ProductCode) returns (google.protobuf.Empty);
+}
+    
+message ProductId {
+    string id = 1;
+}
+message ProductCode{
+    string code = 1;
+}
+message ProductName{
+    string productName = 1;
+}
+message ProductProtoModel {
+    string id = 1;
+    string productName = 2;
+    string productEanCode = 3;
+    string productDescription = 4;
+    double productPrice = 5;
+    string categoryName = 6;
+    int32 quantity = 7;
+}
+    
+message GetListProductProtoModel {
+    repeated ProductProtoModel productModel = 1;
+} 
