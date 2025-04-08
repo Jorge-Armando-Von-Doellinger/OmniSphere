@@ -1,0 +1,6 @@
+Está é uma versão dev, onde está bem incompleta e será usada como base para a versão final!
+
+
+
+ - Caso eu tenha tempo, todo o projeto OMNISPHERE será refeito, assim aprimorando a estrutura do projeto, melhorando a independencia entre os mesmos e , enfim, criando a versão beta da aplicação
+ - Ao ser refeito, será criado um repositorio para cada microsserviço, assim documentando melhor o que cada um faz, utilizando o README

@@ -1,0 +1,9 @@
+Logging:
+  LogLevel:
+    Default: Information
+    Microsoft.AspNetCore: Warning
+Database:
+  MongoDb:
+    CONNECTION_STRING: mongodb://localhost:27017
+    DATABASE_NAME: LiveStream-dev
+    LIVE_COLLECTION_NAME: Live-dev-v0-beta 

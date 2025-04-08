@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/OmniSphere.LiveStreamService.API.props" />
+</Project>

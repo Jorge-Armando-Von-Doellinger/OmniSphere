@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.LiveStreamService.Application", "OmniSphere.LiveStreamService.Application\OmniSphere.LiveStreamService.Application.csproj", "{524A97C0-8827-41D6-B020-6E29165CE8A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.LiveStreamService.Core", "OmniSphere.LiveStreamService.Core\OmniSphere.LiveStreamService.Core.csproj", "{A7BF2A07-FDC6-469D-9F7D-8AAFEBF4F571}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.LiveStreamService.Infrastructure", "OmniSphere.LiveStreamService.Infrastructure\OmniSphere.LiveStreamService.Infrastructure.csproj", "{3F12AC70-20B9-4170-92EE-48C599405C18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.LiveStreamService.API", "OmniSphere.LiveStreamService.API\OmniSphere.LiveStreamService.API.csproj", "{C64961B2-3C6A-440C-9E69-B1C81A5399A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{524A97C0-8827-41D6-B020-6E29165CE8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{524A97C0-8827-41D6-B020-6E29165CE8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{524A97C0-8827-41D6-B020-6E29165CE8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{524A97C0-8827-41D6-B020-6E29165CE8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7BF2A07-FDC6-469D-9F7D-8AAFEBF4F571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BF2A07-FDC6-469D-9F7D-8AAFEBF4F571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BF2A07-FDC6-469D-9F7D-8AAFEBF4F571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BF2A07-FDC6-469D-9F7D-8AAFEBF4F571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F12AC70-20B9-4170-92EE-48C599405C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F12AC70-20B9-4170-92EE-48C599405C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F12AC70-20B9-4170-92EE-48C599405C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F12AC70-20B9-4170-92EE-48C599405C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C64961B2-3C6A-440C-9E69-B1C81A5399A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64961B2-3C6A-440C-9E69-B1C81A5399A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64961B2-3C6A-440C-9E69-B1C81A5399A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64961B2-3C6A-440C-9E69-B1C81A5399A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

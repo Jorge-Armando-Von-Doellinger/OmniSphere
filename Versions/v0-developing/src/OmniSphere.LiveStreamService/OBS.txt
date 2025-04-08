@@ -1,0 +1,5 @@
+Pendencias:
+ - Storage da infrastructure
+ - Servico que se comunicará com FMPEG
+ - Application Layer
+ - API Layer

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "MNcfF9CzzXWR+AoCYtYwfEzg77D/JscEeYTCtnxGCDg=",
+  "Source": "OmniSphere.LiveStreamService.API",
+  "BasePath": "_content/OmniSphere.LiveStreamService.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
