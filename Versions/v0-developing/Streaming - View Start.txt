@@ -1,0 +1,14 @@
+Nginx vcai ser configurar o RTMP e vai usar o FFmpeg para a transmissão de lives...
+
+Será usado ffmpeg no container DOCKER do StramingService, assim centralizando a logica das Lives neste servico...
+
+Estarei buscando outras formas de fazer a straming ser o ffmpeg, devido ao acoplamento que gera entre a aplicação e o ffmpeg, por ter que se comunicar tão diretamente, mas assim vai funcionar perfeitamente!		
+
+Principios:
+ - Servico de straming, responsavel por iniciar e parar a aplicação, com base no nome de usuario (terá que possuir um user cadastrado) e nome da live!
+ - Poderá ser pedido o ID do usuario, ao invés do nome, assim buscando o user (através de uma comunicação para a proxy, referenciando o microsservico), garantindo que o nome do mesmo vai estar sempre correto!
+ - Terá mais um streaming, só que esse será de dados, onde não há uma estrutura planejada AINDA
+ - Caso eu tenha tempo, todo o projeto OMNISPHERE será refeito, assim aprimorando a estrutura do projeto, melhorando a independencia entre os mesmos e , enfim, criando a versão beta da aplicação
+
+OBS:
+Ao ser refeito, será criado um repositorio para cada microsserviço, assim documentando melhor o que cada um faz, utilizando o README
