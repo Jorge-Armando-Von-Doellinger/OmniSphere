@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jorge/RiderProjects/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {}
+    "/home/jorge/Documentos/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {}
   },
   "projects": {
-    "/home/jorge/RiderProjects/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {
+    "/home/jorge/Documentos/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jorge/RiderProjects/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
+        "projectUniqueName": "/home/jorge/Documentos/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
         "projectName": "OmniSphere.LiveStreamService.Application",
-        "projectPath": "/home/jorge/RiderProjects/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
+        "projectPath": "/home/jorge/Documentos/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
         "packagesPath": "/home/jorge/.nuget/packages/",
-        "outputPath": "/home/jorge/RiderProjects/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/obj/",
+        "outputPath": "/home/jorge/Documentos/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jorge/.nuget/NuGet/NuGet.Config"

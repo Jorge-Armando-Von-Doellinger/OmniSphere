@@ -10,4 +10,8 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-preview.3.25171.5" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="UseCases\Implementations\" />
+    </ItemGroup>
+
 </Project>
