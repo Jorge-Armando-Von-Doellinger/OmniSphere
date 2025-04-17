@@ -1,6 +1,0 @@
-@OmniSphere.LiveStreamService_HostAddress = http://localhost:5057
-
-GET {{OmniSphere.LiveStreamService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

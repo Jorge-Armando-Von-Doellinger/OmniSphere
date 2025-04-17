@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UseCases\Implementations\" />
+      <ProjectReference Include="..\OmniSphere.LiveStreamService.Core\OmniSphere.LiveStreamService.Core.csproj" />
     </ItemGroup>
 
 </Project>

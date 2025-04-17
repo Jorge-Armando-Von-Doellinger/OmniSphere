@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "9dLJv06wtuw=",
+  "dgSpecHash": "+p7oLP3qYL8=",
   "success": true,
   "projectFilePath": "/home/jorge/Documentos/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/home/jorge/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/home/jorge/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.0-preview.3.25171.5/microsoft.extensions.configuration.abstractions.10.0.0-preview.3.25171.5.nupkg.sha512",
+    "/home/jorge/.nuget/packages/microsoft.extensions.configuration.binder/10.0.0-preview.3.25171.5/microsoft.extensions.configuration.binder.10.0.0-preview.3.25171.5.nupkg.sha512",
     "/home/jorge/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.0-preview.3.25171.5/microsoft.extensions.dependencyinjection.abstractions.10.0.0-preview.3.25171.5.nupkg.sha512",
     "/home/jorge/.nuget/packages/microsoft.extensions.logging.abstractions/2.0.0/microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
     "/home/jorge/.nuget/packages/microsoft.extensions.options/10.0.0-preview.3.25171.5/microsoft.extensions.options.10.0.0-preview.3.25171.5.nupkg.sha512",
+    "/home/jorge/.nuget/packages/microsoft.extensions.options.configurationextensions/10.0.0-preview.3.25171.5/microsoft.extensions.options.configurationextensions.10.0.0-preview.3.25171.5.nupkg.sha512",
     "/home/jorge/.nuget/packages/microsoft.extensions.primitives/10.0.0-preview.3.25171.5/microsoft.extensions.primitives.10.0.0-preview.3.25171.5.nupkg.sha512",
     "/home/jorge/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "/home/jorge/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",

@@ -3,3 +3,17 @@ Pendencias:
  - Servico que se comunicará com FMPEG
  - Application Layer
  - API Layer
+
+
+Como funcionará:
+ - Ngin-RTMP será a proxy que controlará o fluxo RTMP
+ - O Microsserviço vai servir para registrar a live, validar os dados e, se tudo ocorrer bem, retornar sucesso! (/live/start/{liveId) - nginx: on_publish {rota}
+ - Após finalizar o fluxo RTMP (a live), o microsserviço vai converter a live em .mp4 - nginx: on_done {rota}
+
+
+
+Details:
+ Nginx-RTMP com volumes compartilhados
+ Microsserviço vai utilizar o volume hls para, ao finalizarm, converter em MP4, disponibilizando em formato de video
+ Vai validar as informações, de acordo com os dados [FromBody] - segundo a grook (IA)
+

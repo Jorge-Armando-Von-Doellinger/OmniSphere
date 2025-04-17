@@ -1,0 +1,23 @@
+rtmp://nginx/live?token=abc123
+
+Token JWT:
+    Continuo: Id do usuario e Token padrão do microsserviço em formato de token
+    Temporario (mais seguro): Id do usuario, Id da Live e Tokenm padrão do microsserviço
+
+Motivo:
+    - Continuo precisa manter os dados, para caso o cliente faça lives frequentemente, não haja a             necessidade de gerar um novo token!
+    - Temporario: Mais seguro, porém menos pratico! Ideal quando o cliente faz live de forma mais casual, com menos frequencia!
+
+Qualidades:
+    - Continuo: Praticidade - onde pode ter varias chaves de acesso, sendo persistente!
+    - Temporario: Mais seguro - onde pode ter varias chaves de acesso, onde vão expirar
+
+Fluxo:
+    - Cliente envia uma requisição para a rota que irá criar a live, especificando o titulo da live, descrição e etc, onde ela vai ficar pendente até iniciar o fluxo rtmp!
+    - Como a chave pode ser a mesma, supondo ser a chave continua, o servidor sempre vai localizar o ultimo registro de live, desde que esteja pendente, e permitir o fluxo do RTMP
+    - Após finalizar a live (on_done), será realizada uma requisição automatica para o a rota de stop da live
+
+Rotas:
+    - Publish Live (cria o registro da live)
+    - Start Live (onde verifica se tem um registro de live, com base na chave de acesso, poẽ-a como ativa e libera o fluxo RTMP) // Realizado pelo NGINX
+    - Stop Live (on_done - ao finalizar a live e ser interrompido o fluxo RTMP, será atualizado os metadados da live, indo para -> Finalizada. Após isso, será feita a conversão do HLS para MP4) // Realizado pelo Nginx

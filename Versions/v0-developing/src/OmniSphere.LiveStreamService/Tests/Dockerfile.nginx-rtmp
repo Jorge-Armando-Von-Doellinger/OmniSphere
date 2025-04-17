@@ -1,0 +1,2 @@
+FROM tiangolo/nginx-rtmp:latest
+COPY nginx-rtmp.conf /etc/nginx/nginx.conf

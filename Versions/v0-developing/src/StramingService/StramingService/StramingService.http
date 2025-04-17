@@ -1,6 +1,0 @@
-@StramingService_HostAddress = http://localhost:5164
-
-GET {{StramingService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

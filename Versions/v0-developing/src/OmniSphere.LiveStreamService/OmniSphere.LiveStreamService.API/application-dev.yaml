@@ -7,6 +7,4 @@ Database:
     ConnectionString: mongodb://localhost:27017
     DatabaseName: LiveStream-dev
     CollectionName: Live-dev-v0-beta
-Storage:
-  Lives:
-    Path: app/data/live
+AllowedHosts: "*"

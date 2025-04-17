@@ -13,14 +13,17 @@ public class Program
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi(); // Swagger
-        builder.Services.AddLayersDI(); // Add layers DI - DependencyInjection/AddLayersDependencyInjection.cs
+        builder.Services.AddLayersDI(builder.Configuration); // Add layers DI - DependencyInjection/AddLayersDependencyInjection.cs
         builder.Configuration.AddYamlFile("application-prod.yaml", optional: false, reloadOnChange: true);
-        builder.Configuration.AddYamlFile($"application-dev.yaml", optional: true, reloadOnChange: true);
 
         
         var app = builder.Build();
         // Configure the HTTP request pipeline.
-        if (builder.Environment.IsDevelopment()) app.MapOpenApi();
+        if (builder.Environment.IsDevelopment())
+        {
+            builder.Configuration.AddYamlFile($"application-dev.yaml", optional: false, reloadOnChange: true);
+            app.MapOpenApi();
+        }
         
         app.UseAuthorization();
         app.MapControllers();

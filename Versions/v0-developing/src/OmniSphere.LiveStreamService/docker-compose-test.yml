@@ -1,0 +1,9 @@
+services:
+  nginx-rtmp:
+    build:
+      context: ./Tests
+      dockerfile: ./Dockerfile.nginx-rtmp
+    ports:
+      - "1935:1935"
+      - "80:80"
+

@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <Folder Include="Persistence\Database\" />
-      <Folder Include="Persistence\Services\Implementations\Production\" />
+      <Folder Include="Services\Converter\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -19,6 +19,7 @@
       <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0-preview.3.25171.5" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-preview.3.25171.5" />
       <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0-preview.3.25171.5" />
+      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.0-preview.3.25171.5" />
       <PackageReference Include="MongoDB.Driver" Version="3.3.0" />
     </ItemGroup>
 
