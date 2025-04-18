@@ -3,7 +3,48 @@ services:
     build:
       context: ./Tests
       dockerfile: ./Dockerfile.nginx-rtmp
+    privileged: true
     ports:
       - "1935:1935"
       - "80:80"
+    volumes:
+      - ./shared_hls:/app/hls
+    depends_on:
+      - streaming_service
+    networks:
+      - app-network
+
+  streaming_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: 0:0
+    privileged: true
+    ports:
+      - "5049:5049"
+    environment:
+      - ASPNETCORE_URLS=http://+:5049
+      - ASPNETCORE_ENVIRONMENT=Production
+    container_name: StreamingService
+    volumes:
+      - ./shared_hls:/app/hls
+      - ./shared_video:/app/video
+    depends_on:
+      - mongodbs
+    networks:
+      - app-network
+
+  mongodbs:
+    image: mongo:latest
+    container_name: mongodbs
+    user: "0:0"
+    ports:
+      - "27018:27018"
+    command: ["mongod", "--logpath", "/dev/null"]
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    name: test-streaming
 

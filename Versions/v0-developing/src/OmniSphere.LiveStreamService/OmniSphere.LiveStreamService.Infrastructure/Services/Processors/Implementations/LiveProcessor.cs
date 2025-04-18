@@ -1,19 +1,24 @@
+using Microsoft.Extensions.Options;
 using OmniSphere.LiveStreamService.Core.Entity;
 using OmniSphere.LiveStreamService.Core.Interfaces.Services;
+using OmniSphere.LiveStreamService.Infrastructure.Persistence.Services.FFmpeg;
+using OmniSphere.LiveStreamService.Infrastructure.Persistence.Services.Processors.Settings;
 
 namespace OmniSphere.LiveStreamService.Infrastructure.Persistence.Services.Processors.Implementations;
 
 public class LiveProcessor : ILiveProcessor // ILiveProcessor -> Core 
 {
+    private readonly IHlsConverter _converter;
+
     // Vai se comunicar com o FFmpeg (do container)
     // Irá utilizar o HlsPath para coletar os hls correspondentes a live
     // Após, irá se comunicar com o FFmpeg para converte-lo em mp4
-    public LiveProcessor() // Configs,
+    public LiveProcessor(IHlsConverter converter)
     {
-        
+        _converter = converter;
     }
-    public Task Process(LiveEntity live)
+    public async Task Process(LiveEntity live)
     {
-        throw new NotImplementedException();
+        await _converter.ConvertHls(live.KeyAccessToken);
     }
 }

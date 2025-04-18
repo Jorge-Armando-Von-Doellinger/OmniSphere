@@ -4,14 +4,13 @@ Logging:
     Microsoft.AspNetCore: Warning
 Database:
   MongoDb:
-    ConnectionString: mongodb://mongodb:27017
-    DatabaseName: LiveStream-prod
-    CollectionName: Live-prod-v0-beta
+    ConnectionString: mongodb://mongodbs:27017
+    DatabaseName: LiveStream-dev-container
+    CollectionName: Live-dev-container-v0-beta
 Storage:
-  Lives:
-    Path: app/data/live
-Services:
-  LiveStream:
-    FFmpeg:
-      HlsUrl: rtmp://nginx-rtmp:1935/live/usuario_exemplo/Minha_Live_Incrivel
+  PhysicalStorage:
+    BaseHlsPath: /app/hls/
+    BaseVideoPath: /app/video/
+    StorageType: Physical-Container
+
 AllowedHosts: "*"

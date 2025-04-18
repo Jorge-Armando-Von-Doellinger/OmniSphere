@@ -21,3 +21,5 @@ Rotas:
     - Publish Live (cria o registro da live)
     - Start Live (onde verifica se tem um registro de live, com base na chave de acesso, poẽ-a como ativa e libera o fluxo RTMP) // Realizado pelo NGINX
     - Stop Live (on_done - ao finalizar a live e ser interrompido o fluxo RTMP, será atualizado os metadados da live, indo para -> Finalizada. Após isso, será feita a conversão do HLS para MP4) // Realizado pelo Nginx
+
+

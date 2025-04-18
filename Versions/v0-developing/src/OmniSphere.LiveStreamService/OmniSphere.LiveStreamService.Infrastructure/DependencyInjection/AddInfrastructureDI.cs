@@ -9,15 +9,13 @@ public static class AddInfrastructureDI
     public static IServiceCollection AddInfrastructureLayerDI(this IServiceCollection services, IConfiguration configuration)
     {
         services
-            .AddSettingsDI(configuration)
+            .InjectSettingsLayer(configuration) // Mudar futuramente
+            .AddProcessorInjection()
+            .AddConvertersInjection()
             .AddDatabaseInjection();
         return services;
     }
 
-    private static IServiceCollection AddSettingsDI(this IServiceCollection services, IConfiguration configuration)
-    {
-        services.AddDatabaseSettingsDI(configuration);
-        return services;
-    }
+
     
 }

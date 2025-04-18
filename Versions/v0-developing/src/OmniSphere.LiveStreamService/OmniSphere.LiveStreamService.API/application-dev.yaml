@@ -7,4 +7,10 @@ Database:
     ConnectionString: mongodb://localhost:27017
     DatabaseName: LiveStream-dev
     CollectionName: Live-dev-v0-beta
+Storage:
+  PhysicalStorage:
+    BaseHlsPath: /app/hls/
+    BaseVideoPath: /app/video/
+    StorageType: Physical
+    
 AllowedHosts: "*"

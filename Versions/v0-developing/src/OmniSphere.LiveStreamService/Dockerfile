@@ -30,6 +30,12 @@ WORKDIR /app
 
 COPY OmniSphere.LiveStreamService.API/application-prod.yaml /app/application-prod.yaml
 
+# Instalar FFmpeg
+RUN apt-get update && \
+    apt-get install -y ffmpeg && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 # Copiar os binários publicados
 COPY --from=build /app/publish .
 
