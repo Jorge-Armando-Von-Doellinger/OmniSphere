@@ -1,0 +1,19 @@
+O que falta implementar?
+
+// Authenticação não é necessario, onde a proxy deverá fazer isso automaticamente!
+
+Chaves de acesso -> Criar uma lógica de geração de chaves de acesso, tanto as mais continuas (usuario decide o tempo de expiração) e as temporarias, tendo até 30min para serem utilizadas, depois expiram e não poderão ser reaproveitadas!
+
+Armazenamento em Cloud -> Armazenar principalmente os mp4 em cloud
+
+Cloud escolhida: Gofile.io
+
+Redis: Temporaly Key Access
+Mongo: Current Key Access (Min duration: 1 day - Max: 30 days)
+
+
+
+
+
+
+

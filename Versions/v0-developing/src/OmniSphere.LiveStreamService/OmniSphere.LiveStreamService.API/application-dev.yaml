@@ -4,13 +4,21 @@ Logging:
     Microsoft.AspNetCore: Warning
 Database:
   MongoDb:
-    ConnectionString: mongodb://localhost:27017
-    DatabaseName: LiveStream-dev
-    CollectionName: Live-dev-v0-beta
+    LiveCollection: 
+      ConnectionString: mongodb://localhost:27017
+      DatabaseName: LiveStream-dev
+      CollectionName: Live-dev-v0-beta
+    KeyAccessCollection:
+      ConnectionString: mongodb://localhost:27017
+      DatabaseName: LiveStream-dev
+      CollectionName: KeyAccess-Live-dev-v0-beta
+Cache:
+  Redis:
+    ConnectionString: localhost:6379
+    DatabaseIndex: 1
 Storage:
   PhysicalStorage:
     BaseHlsPath: /app/hls/
     BaseVideoPath: /app/video/
     StorageType: Physical
-    
 AllowedHosts: "*"

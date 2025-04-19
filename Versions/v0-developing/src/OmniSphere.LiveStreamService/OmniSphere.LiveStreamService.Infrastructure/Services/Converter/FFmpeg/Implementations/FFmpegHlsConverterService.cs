@@ -72,7 +72,7 @@ public class FFmpegHlsConverterService : IHlsConverter
     {
         var hlsPath = Path.Combine(_settings.BaseHlsPath, $"{liveId}.m3u8");
         var mp4Path = Path.Combine(_settings.BaseVideoPath, $"{liveId}.mp4");
-        var command = $"-y -fflags +genpts+discardcorrupt -y -i \"{hlsPath}\" -c:v copy -c:a aac -f mp4 \"{mp4Path}\"";
+        var command = $"-y -fflags +genpts+discardcorrupt -y -i \"{hlsPath}\" -c:v copy -c:a aac -f mp4 \"{mp4Path}\"" ;
         return command;
     }
     private async Task ClearHlsFiles(string liveId)

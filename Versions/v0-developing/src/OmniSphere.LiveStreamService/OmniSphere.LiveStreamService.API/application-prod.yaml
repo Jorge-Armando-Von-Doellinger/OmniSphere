@@ -7,6 +7,9 @@ Database:
     ConnectionString: mongodb://mongodbs:27017
     DatabaseName: LiveStream-dev-container
     CollectionName: Live-dev-container-v0-beta
+Cache:
+  Redis:
+    ConnectionString: redis-container:6379
 Storage:
   PhysicalStorage:
     BaseHlsPath: /app/hls/

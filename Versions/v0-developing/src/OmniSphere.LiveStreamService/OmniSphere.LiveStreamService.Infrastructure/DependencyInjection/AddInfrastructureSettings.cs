@@ -9,6 +9,7 @@ internal static class AddInfrastructureSettings
     {
         services.AddDatabaseSettingsDI(configuration);
         services.AddStorageSettingsInjection(configuration);
+        services.AddCacheDatabaseSettingsDI(configuration);
         return services;
     }
 }

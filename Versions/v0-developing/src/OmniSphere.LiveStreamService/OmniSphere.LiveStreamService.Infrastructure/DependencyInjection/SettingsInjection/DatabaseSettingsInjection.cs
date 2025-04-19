@@ -9,7 +9,8 @@ internal static class DatabaseSettingsInjection
     internal static IServiceCollection AddDatabaseSettingsDI(this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.Configure<MongoDbSettings>(configuration.GetSection("Database:MongoDb"));
+        services.Configure<MongoDbSettings>(configuration.GetSection("Database:MongoDb:LiveCollection"));
+        services.Configure<MongoDbSettings>(configuration.GetSection("Database:MongoDb:KeyAccessCollection"));
         return services;
     }
 }

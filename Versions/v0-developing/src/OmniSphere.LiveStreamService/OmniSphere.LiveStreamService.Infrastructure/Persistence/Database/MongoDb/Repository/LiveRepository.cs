@@ -24,14 +24,14 @@ public class LiveRepository : ILiveRepository
     public async Task<LiveEntity> GetLatestByKeyAccessAsync(string keyAccess)
     {
         var docs = await _collection.FindAsync(x => x.KeyAccessToken == keyAccess);
-        var latest = await docs.FirstOrDefaultAsync() ?? throw new LiveMetadataNotFoundedException();
+        var latest = await docs.FirstOrDefaultAsync() ?? throw new EntityNotFoundException("Live", keyAccess);
         return latest;
     }
 
     public async Task<LiveEntity> GetByIdAsync(string liveId)
     {
         var docs = await _collection.FindAsync(entity => entity.LiveId == liveId);
-        return await docs.FirstOrDefaultAsync() ?? throw new LiveMetadataNotFoundedException();
+        return await docs.FirstOrDefaultAsync() ?? throw new EntityNotFoundException("Live", liveId);
     }
 
     public async Task AddAsync(LiveEntity live)
@@ -41,10 +41,11 @@ public class LiveRepository : ILiveRepository
 
     public async Task UpdateAsync(LiveEntity live)
     {
-        var latest = await this.GetLatestByKeyAccessAsync(live.KeyAccessToken);
+        var latest = await this.GetLatestByKeyAccessAsync(live.KeyAccessToken); // Its already does the validation, where it returns an exception case null!
         latest.FinalizedAt = live.FinalizedAt; 
         latest.Description = live.Description;
         latest.Title = live.Title;
+        latest.StartedAt = live.StartedAt;
         await _collection.ReplaceOneAsync(x => x.LiveId == live.LiveId, live);
     }
 

@@ -6,10 +6,11 @@ public class LiveEntity
     public required string Username { get; init; }
     public required string Title { get; set; }
     public string? Description { get; set; }
-    public string? KeyAccessToken { get; set; }
+    public required string KeyAccessToken { get; init; }
     public DateTime CreatedAt { get; init;  } = DateTime.Now;
+    public DateTime? StartedAt { get; set; } = null;
     public DateTime? FinalizedAt { get; set; } = null;
-    public DateTime? DeletedAt { get; set; }
+    public DateTime? DeletedAt { get; set; } = null;
 
     /// <summary>
     /// Set the finalizedAt
@@ -26,5 +27,15 @@ public class LiveEntity
     public bool IsRunning()
     {
         return FinalizedAt.HasValue;
+    }
+    
+    public void Finalize()
+    {
+        FinalizedAt = DateTime.Now;
+    }
+
+    public void Delete()
+    {
+        DeletedAt = DateTime.Now;  
     }
 }

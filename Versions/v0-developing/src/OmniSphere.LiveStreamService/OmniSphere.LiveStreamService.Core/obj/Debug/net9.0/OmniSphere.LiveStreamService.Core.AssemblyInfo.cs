@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OmniSphere.LiveStreamService.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca518f82e7e712565e4e9fe44c4bb1e3cf4c6557")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ff5151576f7fb5297dc4ece2b63684f5d9cb788")]
 [assembly: System.Reflection.AssemblyProductAttribute("OmniSphere.LiveStreamService.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OmniSphere.LiveStreamService.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
