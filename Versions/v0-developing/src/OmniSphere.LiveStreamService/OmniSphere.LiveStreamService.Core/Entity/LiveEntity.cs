@@ -6,7 +6,7 @@ public class LiveEntity
     public required string Username { get; init; }
     public required string Title { get; set; }
     public string? Description { get; set; }
-    public required string KeyAccessToken { get; init; }
+    public string KeyAccess { get; init; }
     public DateTime CreatedAt { get; init;  } = DateTime.Now;
     public DateTime? StartedAt { get; set; } = null;
     public DateTime? FinalizedAt { get; set; } = null;

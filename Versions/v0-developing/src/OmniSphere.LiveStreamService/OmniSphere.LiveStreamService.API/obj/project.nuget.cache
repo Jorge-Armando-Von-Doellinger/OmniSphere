@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g/YT4hbSCRQ=",
+  "dgSpecHash": "vz31E5V5dMk=",
   "success": true,
-  "projectFilePath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj",
+  "projectFilePath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj",
   "expectedPackageFiles": [
     "/home/jorge/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/jorge/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",

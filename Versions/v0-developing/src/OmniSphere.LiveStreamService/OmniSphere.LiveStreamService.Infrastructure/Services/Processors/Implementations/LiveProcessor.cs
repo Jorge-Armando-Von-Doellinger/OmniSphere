@@ -1,10 +1,8 @@
-using Microsoft.Extensions.Options;
 using OmniSphere.LiveStreamService.Core.Entity;
 using OmniSphere.LiveStreamService.Core.Interfaces.Services;
 using OmniSphere.LiveStreamService.Infrastructure.Persistence.Services.FFmpeg;
-using OmniSphere.LiveStreamService.Infrastructure.Persistence.Services.Processors.Settings;
 
-namespace OmniSphere.LiveStreamService.Infrastructure.Persistence.Services.Processors.Implementations;
+namespace OmniSphere.LiveStreamService.Infrastructure.Services.Processors.Implementations;
 
 public class LiveProcessor : ILiveProcessor // ILiveProcessor -> Core 
 {
@@ -19,6 +17,6 @@ public class LiveProcessor : ILiveProcessor // ILiveProcessor -> Core
     }
     public async Task Process(LiveEntity live)
     {
-        await _converter.ConvertHls(live.KeyAccessToken);
+        await _converter.ConvertHls(live.KeyAccess);
     }
 }

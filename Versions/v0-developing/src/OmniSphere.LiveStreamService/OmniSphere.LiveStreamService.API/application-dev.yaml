@@ -8,10 +8,6 @@ Database:
       ConnectionString: mongodb://localhost:27017
       DatabaseName: LiveStream-dev
       CollectionName: Live-dev-v0-beta
-    KeyAccessCollection:
-      ConnectionString: mongodb://localhost:27017
-      DatabaseName: LiveStream-dev
-      CollectionName: KeyAccess-Live-dev-v0-beta
 Cache:
   Redis:
     ConnectionString: localhost:6379

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hIDgmIyA7kE=",
+  "dgSpecHash": "57/nivrHNq4=",
   "success": true,
-  "projectFilePath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
+  "projectFilePath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
   "expectedPackageFiles": [
     "/home/jorge/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.0-preview.3.25171.5/microsoft.extensions.dependencyinjection.abstractions.10.0.0-preview.3.25171.5.nupkg.sha512"
   ],

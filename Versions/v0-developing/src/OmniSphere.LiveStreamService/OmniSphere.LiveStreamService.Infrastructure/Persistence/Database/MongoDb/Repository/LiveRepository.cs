@@ -23,7 +23,7 @@ public class LiveRepository : ILiveRepository
 
     public async Task<LiveEntity> GetLatestByKeyAccessAsync(string keyAccess)
     {
-        var docs = await _collection.FindAsync(x => x.KeyAccessToken == keyAccess);
+        var docs = await _collection.FindAsync(x => x.KeyAccess == keyAccess);
         var latest = await docs.FirstOrDefaultAsync() ?? throw new EntityNotFoundException("Live", keyAccess);
         return latest;
     }
@@ -41,7 +41,7 @@ public class LiveRepository : ILiveRepository
 
     public async Task UpdateAsync(LiveEntity live)
     {
-        var latest = await this.GetLatestByKeyAccessAsync(live.KeyAccessToken); // Its already does the validation, where it returns an exception case null!
+        var latest = await this.GetLatestByKeyAccessAsync(live.KeyAccess); // Its already does the validation, where it returns an exception case null!
         latest.FinalizedAt = live.FinalizedAt; 
         latest.Description = live.Description;
         latest.Title = live.Title;

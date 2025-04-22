@@ -23,8 +23,4 @@
       <ProjectReference Include="..\OmniSphere.LiveStreamService.Infrastructure\OmniSphere.LiveStreamService.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Middlewares\" />
-    </ItemGroup>
-
 </Project>

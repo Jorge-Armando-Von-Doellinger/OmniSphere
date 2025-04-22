@@ -22,9 +22,9 @@ public class LiveStreamUseCase : ILiveStreamUseCase
         return await _repository.GetByIdAsync(liveId);
     }
 
-    public async Task<LiveEntity> GetLatestLiveByKeyAccessAsync(string liveId)
+    public async Task<LiveEntity> GetLatestLiveByKeyAccessAsync(string keyAccess)
     {
-        return await _repository.GetLatestByKeyAccessAsync(liveId);
+        return await _repository.GetLatestByKeyAccessAsync(keyAccess);
     }
 
     public async Task<LiveEntity> RegisterAsync(LiveEntity live)

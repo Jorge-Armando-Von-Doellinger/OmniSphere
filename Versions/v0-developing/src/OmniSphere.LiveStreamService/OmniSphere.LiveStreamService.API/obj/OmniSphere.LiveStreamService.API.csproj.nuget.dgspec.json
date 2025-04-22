@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj": {}
+    "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj": {}
   },
   "projects": {
-    "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj": {
+    "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj",
+        "projectUniqueName": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj",
         "projectName": "OmniSphere.LiveStreamService.API",
-        "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj",
+        "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/OmniSphere.LiveStreamService.API.csproj",
         "packagesPath": "/home/jorge/.nuget/packages/",
-        "outputPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/obj/",
+        "outputPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jorge/.nuget/NuGet/NuGet.Config"
@@ -27,11 +27,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {
-                "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj"
+              "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {
+                "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj"
               },
-              "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj": {
-                "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj"
+              "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj": {
+                "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {
+    "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
+        "projectUniqueName": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
         "projectName": "OmniSphere.LiveStreamService.Application",
-        "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
+        "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/OmniSphere.LiveStreamService.Application.csproj",
         "packagesPath": "/home/jorge/.nuget/packages/",
-        "outputPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/obj/",
+        "outputPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jorge/.nuget/NuGet/NuGet.Config"
@@ -107,8 +107,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj": {
-                "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj"
+              "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj": {
+                "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj"
               }
             }
           }
@@ -154,14 +154,14 @@
         }
       }
     },
-    "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj": {
+    "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
+        "projectUniqueName": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
         "projectName": "OmniSphere.LiveStreamService.Core",
-        "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
+        "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
         "packagesPath": "/home/jorge/.nuget/packages/",
-        "outputPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/",
+        "outputPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jorge/.nuget/NuGet/NuGet.Config"
@@ -214,14 +214,14 @@
         }
       }
     },
-    "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj": {
+    "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj",
+        "projectUniqueName": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj",
         "projectName": "OmniSphere.LiveStreamService.Infrastructure",
-        "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj",
+        "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/OmniSphere.LiveStreamService.Infrastructure.csproj",
         "packagesPath": "/home/jorge/.nuget/packages/",
-        "outputPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/obj/",
+        "outputPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jorge/.nuget/NuGet/NuGet.Config"
@@ -237,8 +237,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj": {
-                "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj"
+              "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj": {
+                "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj"
               }
             }
           }

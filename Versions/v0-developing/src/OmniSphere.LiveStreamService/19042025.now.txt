@@ -11,6 +11,9 @@ Cloud escolhida: Gofile.io
 Redis: Temporaly Key Access
 Mongo: Current Key Access (Min duration: 1 day - Max: 30 days)
 
+Authenticação do usuario:
+-> Será feita automaticamente pela proxy, atráves de um filtro de requisição, onde ira validar o token e, caso seja inválido (segundo ao microsservico de authenticação), ele será direcionado ao login!
+
 
 
 

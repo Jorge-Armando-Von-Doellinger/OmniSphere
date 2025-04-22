@@ -8,15 +8,25 @@
     ".NETCoreApp,Version=v9.0": {
       "OmniSphere.LiveStreamService.Infrastructure/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.3.25171.5",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.3.25171.5",
           "Microsoft.Extensions.Options": "10.0.0-preview.3.25171.5",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "10.0.0-preview.3.25171.5",
           "MongoDB.Driver": "3.3.0",
-          "OmniSphere.LiveStreamService.Core": "1.0.0"
+          "OmniSphere.LiveStreamService.Core": "1.0.0",
+          "StackExchange.Redis": "2.8.31"
         },
         "runtime": {
           "OmniSphere.LiveStreamService.Infrastructure.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.0.3": {
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
+          }
         }
       },
       "DnsClient/1.6.1": {
@@ -60,11 +70,11 @@
           }
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
+      "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.17205"
+          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
           }
         }
       },
@@ -125,7 +135,7 @@
       "MongoDB.Driver/3.3.0": {
         "dependencies": {
           "DnsClient": "1.6.1",
-          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "MongoDB.Bson": "3.3.0",
           "SharpCompress": "0.30.1",
           "Snappier": "1.0.0",
@@ -136,6 +146,17 @@
           "lib/net6.0/MongoDB.Driver.dll": {
             "assemblyVersion": "3.3.0.0",
             "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "dependencies": {
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.2.8.1080"
           }
         }
       },
@@ -155,7 +176,20 @@
           }
         }
       },
+      "StackExchange.Redis/2.8.31": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Pipelines.Sockets.Unofficial": "2.2.8"
+        },
+        "runtime": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.8.31.52602"
+          }
+        }
+      },
       "System.Buffers/4.5.1": {},
+      "System.IO.Pipelines/5.0.1": {},
       "System.Memory/4.5.5": {},
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
       "System.Security.AccessControl/5.0.0": {
@@ -189,6 +223,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
     "DnsClient/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -217,12 +258,12 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/10.0.0-preview.3.25171.5",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.10.0.0-preview.3.25171.5.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
+    "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
-      "path": "microsoft.extensions.logging.abstractions/2.0.0",
-      "hashPath": "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512"
+      "sha512": "sha512-/HggWBbTwy8TgebGSX5DBZ24ndhzi93sHUBDvP1IxbZD7FDokYzdAr6+vbWGjw2XAfR2EJ1sfKUotpjHnFWPxA==",
+      "path": "microsoft.extensions.logging.abstractions/6.0.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/10.0.0-preview.3.25171.5": {
       "type": "package",
@@ -273,6 +314,13 @@
       "path": "mongodb.driver/3.3.0",
       "hashPath": "mongodb.driver.3.3.0.nupkg.sha512"
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
     "SharpCompress/0.30.1": {
       "type": "package",
       "serviceable": true,
@@ -287,12 +335,26 @@
       "path": "snappier/1.0.0",
       "hashPath": "snappier.1.0.0.nupkg.sha512"
     },
+    "StackExchange.Redis/2.8.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RCHVQa9Zke8k0oBgJn1Yl6BuYy8i6kv+sdMObiH60nOwD6QvWAjxdDwOm+LO78E8WsGiPqgOuItkz98fPS6haQ==",
+      "path": "stackexchange.redis/2.8.31",
+      "hashPath": "stackexchange.redis.2.8.31.nupkg.sha512"
+    },
     "System.Buffers/4.5.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
+    },
+    "System.IO.Pipelines/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qEePWsaq9LoEEIqhbGe6D5J8c9IqQOUuTzzV6wn1POlfdLkJliZY3OlB0j0f17uMWlqZYjH7txj+2YbyrIA8Yg==",
+      "path": "system.io.pipelines/5.0.1",
+      "hashPath": "system.io.pipelines.5.0.1.nupkg.sha512"
     },
     "System.Memory/4.5.5": {
       "type": "package",

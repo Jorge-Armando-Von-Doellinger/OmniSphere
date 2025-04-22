@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
+      "projectUniqueName": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
       "projectName": "OmniSphere.LiveStreamService.Core",
-      "projectPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
+      "projectPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/OmniSphere.LiveStreamService.Core.csproj",
       "packagesPath": "/home/jorge/.nuget/packages/",
-      "outputPath": "/run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/",
+      "outputPath": "/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/jorge/.nuget/NuGet/NuGet.Config"
