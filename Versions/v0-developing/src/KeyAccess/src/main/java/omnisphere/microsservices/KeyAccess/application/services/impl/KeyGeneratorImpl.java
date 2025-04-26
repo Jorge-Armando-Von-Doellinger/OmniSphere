@@ -1,6 +1,6 @@
-package omnisphere.microsservices.KeyAccess.services.impl;
+package omnisphere.microsservices.KeyAccess.application.services.impl;
 
-import omnisphere.microsservices.KeyAccess.services.interfaces.IKeyGenerator;
+import omnisphere.microsservices.KeyAccess.application.services.interfaces.IKeyGenerator;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 

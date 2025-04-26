@@ -1,4 +1,4 @@
-package omnisphere.microsservices.KeyAccess.services.interfaces;
+package omnisphere.microsservices.KeyAccess.application.services.interfaces;
 
 import reactor.core.publisher.Mono;
 

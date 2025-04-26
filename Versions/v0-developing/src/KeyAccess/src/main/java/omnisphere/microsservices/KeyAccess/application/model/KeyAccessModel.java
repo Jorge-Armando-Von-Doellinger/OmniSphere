@@ -1,4 +1,4 @@
-package omnisphere.microsservices.KeyAccess.model;
+package omnisphere.microsservices.KeyAccess.application.model;
 
 import java.util.Date;
 

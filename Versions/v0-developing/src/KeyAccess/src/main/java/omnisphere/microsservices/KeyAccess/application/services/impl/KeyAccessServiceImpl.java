@@ -1,18 +1,16 @@
-package omnisphere.microsservices.KeyAccess.services.impl;
+package omnisphere.microsservices.KeyAccess.application.services.impl;
 
-import omnisphere.microsservices.KeyAccess.entity.KeyAccess;
-import omnisphere.microsservices.KeyAccess.exceptions.FailedSaveEntityException;
-import omnisphere.microsservices.KeyAccess.exceptions.InvalidKeyAccessException;
-import omnisphere.microsservices.KeyAccess.exceptions.KeyAccessNotFoundException;
-import omnisphere.microsservices.KeyAccess.model.KeyAccessModel;
-import omnisphere.microsservices.KeyAccess.repository.IKeyAccessRepository;
-import omnisphere.microsservices.KeyAccess.services.interfaces.IKeyAccessService;
-import omnisphere.microsservices.KeyAccess.services.interfaces.IKeyGenerator;
+import omnisphere.microsservices.KeyAccess.core.entity.KeyAccess;
+import omnisphere.microsservices.KeyAccess.infrastructure.exception.FailedSaveEntityException;
+import omnisphere.microsservices.KeyAccess.core.exceptions.KeyAccessNotFoundException;
+import omnisphere.microsservices.KeyAccess.application.model.KeyAccessModel;
+import omnisphere.microsservices.KeyAccess.infrastructure.repository.IKeyAccessRepository;
+import omnisphere.microsservices.KeyAccess.application.services.interfaces.IKeyAccessService;
+import omnisphere.microsservices.KeyAccess.application.services.interfaces.IKeyGenerator;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class KeyAccessServiceImpl implements IKeyAccessService {

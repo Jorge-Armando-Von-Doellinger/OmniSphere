@@ -1,6 +1,6 @@
-package omnisphere.microsservices.KeyAccess.repository;
+package omnisphere.microsservices.KeyAccess.infrastructure.repository;
 
-import omnisphere.microsservices.KeyAccess.entity.KeyAccess;
+import omnisphere.microsservices.KeyAccess.core.entity.KeyAccess;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

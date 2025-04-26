@@ -1,4 +1,4 @@
-package omnisphere.microsservices.KeyAccess.exceptions;
+package omnisphere.microsservices.KeyAccess.core.exceptions;
 
 public class InvalidKeyAccessException extends RuntimeException {
     public InvalidKeyAccessException(String message) {

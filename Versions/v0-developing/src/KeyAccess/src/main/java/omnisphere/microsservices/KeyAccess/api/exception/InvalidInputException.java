@@ -1,4 +1,4 @@
-package omnisphere.microsservices.KeyAccess.exceptions;
+package omnisphere.microsservices.KeyAccess.api.exception;
 
 public class InvalidInputException extends RuntimeException {
     public InvalidInputException(String message) {

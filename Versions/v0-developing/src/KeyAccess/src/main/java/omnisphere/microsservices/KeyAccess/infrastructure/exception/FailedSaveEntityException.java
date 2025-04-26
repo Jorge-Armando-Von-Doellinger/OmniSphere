@@ -1,4 +1,4 @@
-package omnisphere.microsservices.KeyAccess.exceptions;
+package omnisphere.microsservices.KeyAccess.infrastructure.exception;
 
 public class FailedSaveEntityException extends RuntimeException {
     public FailedSaveEntityException(String message) {

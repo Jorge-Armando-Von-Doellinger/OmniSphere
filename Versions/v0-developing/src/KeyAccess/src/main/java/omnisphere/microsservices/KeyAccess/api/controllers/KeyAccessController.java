@@ -1,9 +1,8 @@
-package omnisphere.microsservices.KeyAccess.controllers;
+package omnisphere.microsservices.KeyAccess.api.controllers;
 
-import omnisphere.microsservices.KeyAccess.entity.KeyAccess;
-import omnisphere.microsservices.KeyAccess.exceptions.InvalidInputException;
-import omnisphere.microsservices.KeyAccess.model.KeyAccessModel;
-import omnisphere.microsservices.KeyAccess.services.interfaces.IKeyAccessService;
+import omnisphere.microsservices.KeyAccess.api.exception.InvalidInputException;
+import omnisphere.microsservices.KeyAccess.application.model.KeyAccessModel;
+import omnisphere.microsservices.KeyAccess.application.services.interfaces.IKeyAccessService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,7 @@ public class KeyAccessController {
     @PostMapping
     public Mono<String> generate(@RequestBody Date expireOn,
                                  @RequestHeader("X-User-Identifier-StringValue") String userId) {
-        if(expireOn.before(new Date())) throw new InvalidInputException();
+        if(expireOn.before(new Date())) throw new InvalidInputException("This token cannot expire before the current time!");
         var model = new KeyAccessModel(expireOn, userId);
         return service
                 .generate(model)
@@ -36,7 +35,7 @@ public class KeyAccessController {
     }
     @PostMapping("/headers/validate")
     public Mono<Boolean> validateHeader(@RequestHeader("X-KeyAccess-StringValue") String key,
-                                  @RequestHeader("X-User-Identifier-StringValue") String userId) {
+                                  @RequestHeader("X-User-Identifier-StringValue") String userId) { // rule of this microsservices!
         var current = service.get(key, userId); // retornará um erro caso null ou invalido!
         return current.hasElement();
     }

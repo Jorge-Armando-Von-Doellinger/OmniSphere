@@ -1,4 +1,4 @@
-package omnisphere.microsservices.KeyAccess.entity;
+package omnisphere.microsservices.KeyAccess.core.entity;
 
 import jakarta.persistence.Id;
 import lombok.*;
