@@ -1,0 +1,29 @@
+Usuario faz login a partir do frontend -> faz envio do email e password
+
+Frontend-> Envia o model de usuario (username: null, email: xxx@xxx.xx, password: xxxx)
+
+Backend -> Proxy envia a requisição para o microserviço de usuarios
+Backend -> Poẽ o ID do usuario em um header interno, onde automaticamente será direcionado ao microsservico de autenticação, assim retornando um cookie de autenticação!
+
+Methods:
+    Frontend -> GET
+    BACKEND -> Proxy recebe a req, valida o TOKEN ou COOKIE
+    BACKEND -> Pós, coleta os dados dos headers, sempre tendo a garantia que vai coletar somente os dados daquele usuario
+    OBS: Tambem pode ser enviado o id do admin, onde também teria acesso!
+
+    Frontend -> Post
+    BACKEND -> Proxy recebe a req e envia os dados (Não precisa de validação, pois é a criação do usuario)
+
+    Frontend -> Put
+    BACKEND -> Proxy recebe a req, valida o TOKEN ou COOKIE
+    BACKEND -> Pós, coleta os dados e faz o update conforme o id do header, sempre tendo a garantia que vai coletar somente os dados daquele usuario
+    OBS: Tambem pode ser enviado o id do admin, onde também teria acesso!
+
+    Frontend -> Delete
+    BACKEND -> Proxy recebe a req, valida o TOKEN ou COOKIE
+    BACKEND -> Pós, coleta os dados e faz o delete conforme o id do header, sempre tendo a garantia que vai coletar somente os dados daquele usuario!
+    OBS: Tambem pode ser enviado o id do admin, onde também teria acesso!
+
+Resumo:
+- Para todas as operações (exceto a de criação de usuario), será validado o ID do usuario ou do ADMIN (caso seja um admin fazendo a busca/alteração)
+- Todas alterações seram registradas, através de: Change Streams (tipo um trigger SQL)!

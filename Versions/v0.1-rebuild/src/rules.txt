@@ -1,0 +1,25 @@
+REQUIRED HEADERS:
+    X-AUTHETICATION-TOKEN-STRINGVALUE // Always verified (cached by 30min - after, will be a new                                                    complete request) // Verified by PROXY -> Microsservice
+    X-USER-IDENTIFIER-STRINGVALUE // Verifier by PROXY -> Microsservice
+    X-ADMIN-IDENTIFIER-STRINGVALUE // verified by PROXY -> Microsservice
+    X-KEYACCESS-STRINGVALUE // If necessary, verified by PROXy -> Microsservice
+
+All headers above they are internals, that is, they will be done by proxy!
+
+*********************
+
+X-USER-IDENTIFIER-STRINGVALUE > INTERNAL HEADER (CLIENT DON'T HAVE ACCESS)
+X-ADMIN-IDENTIFIER-STRINGVALUE > INTERNAL HEADER (CLIENT DON'T HAVE ACCESS)
+X-AUTHETICATION-TOKEN-STRINGVALUE > should be returned to the user as a cookie!
+X-ADMIN-IDENTIFIER-STRINGVALUE > Should be returned to the user as a cookie (optional)
+
+X-CLIENT-IP-SECURITY-STRINGVALUE > NTERNAL HEADER (CLIENT DON'T HAVE ACCESS) - GET BY PROXY
+X-USER-AGENT-SECURITY-STRINGVALUE > NTERNAL HEADER (CLIENT DON'T HAVE ACCESS) - GET BY PROXY
+
+*********************
+
+X-AUTHETICATION-TOKEN-STRINGVALUE is required for ALLs requisitions
+
+Others be created for demand!
+
+

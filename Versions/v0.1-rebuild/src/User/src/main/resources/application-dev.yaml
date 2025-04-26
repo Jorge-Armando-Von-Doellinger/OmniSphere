@@ -1,0 +1,31 @@
+spring:
+    application:
+        name: User
+    r2dbc:
+        url: r2dbc:postgresql://localhost:5432/user
+        username: ${PG_USER}
+        password: ${PG_PASS}
+        driver-class-name: org.postgresql.Driver
+    sql:
+        init:
+            mode: always
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    elasticsearch:
+        uris: http://localhost:9200
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        platform: postgresql
+        schema: classpath:/sql/create_tables_if_not_exists.sql
+        data: classpath:/sql/user_delete_trigger.sql
+logging:
+    level:
+        org.springframework: ERROR
+        org.hibernate: ERROR
+        com.mongodb: ERROR
+        root: ERROR
+        org.springframework.web: ERROR
+    pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
