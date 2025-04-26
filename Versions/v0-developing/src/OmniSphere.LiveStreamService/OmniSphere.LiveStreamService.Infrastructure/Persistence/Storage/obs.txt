@@ -1,1 +1,0 @@
-// Pasta criada para permitir a escalabilidade de armazenamento, podendo guardar também em Cloud!

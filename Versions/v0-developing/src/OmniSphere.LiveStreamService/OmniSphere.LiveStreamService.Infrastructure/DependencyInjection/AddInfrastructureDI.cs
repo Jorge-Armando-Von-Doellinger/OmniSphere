@@ -6,16 +6,12 @@ namespace OmniSphere.LiveStreamService.Infrastructure.DependencyInjection;
 
 public static class AddInfrastructureDI
 {
-    public static IServiceCollection AddInfrastructureLayerDI(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructureLayerDI(this IServiceCollection services,
+        IConfiguration configuration)
     {
         services
             .InjectSettingsLayer(configuration) // Mudar futuramente
-            .AddProcessorInjection()
-            .AddConvertersInjection()
             .AddDatabaseInjection();
         return services;
     }
-
-
-    
 }

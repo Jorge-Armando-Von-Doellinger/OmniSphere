@@ -22,6 +22,7 @@ public static class DatabaseInjection
         services.AddScoped<ILiveRepository, LiveRepository>();
         return services;
     }
+
     private static IServiceCollection AddMongoDbServices(this IServiceCollection services) // Persistence.Database
     {
         MongoDbClassMapService.Initialize(); // Mapeia o LiveEntity - aceito sugestões de lugares melhores para colocar
@@ -29,5 +30,4 @@ public static class DatabaseInjection
         services.AddScoped<IMongoDbConnectionService, MongoDbConnectionService>();
         return services;
     }
-    
 }

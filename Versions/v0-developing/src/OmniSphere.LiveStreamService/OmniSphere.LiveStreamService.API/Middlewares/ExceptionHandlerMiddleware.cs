@@ -3,8 +3,8 @@ using OmniSphere.LiveStreamService.API.Exceptions;
 
 public class ExceptionHandlerMiddleware
 {
-    private readonly RequestDelegate _next;
     private readonly ILogger<ExceptionHandlerMiddleware> _logger;
+    private readonly RequestDelegate _next;
 
     public ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionHandlerMiddleware> logger)
     {
@@ -36,7 +36,7 @@ public class ExceptionHandlerMiddleware
         catch (Exception ex) // Here is an internal errors, how connection refused by the database
         {
             _logger.LogError(ex, "Unexpected error");
-            await WriteResponse(context, 500, "Internal Server Error");
+            await WriteResponse(context, 500, "Internal Server Error. Please, notify the TI team.");
         }
     }
 

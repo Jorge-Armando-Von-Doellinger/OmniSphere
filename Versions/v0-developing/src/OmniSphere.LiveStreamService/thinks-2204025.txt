@@ -1,0 +1,9 @@
+Adicionar .conf do nginx (paths de segurança, como limite de requisição por minuto, a partir do mesmo IP)
+Adicionar .conf de rotas
+Adicionar .conf de rotas RTMP
+Adicionar .conf de rotas de mensageria (a partir de um filtro em C que vai localizar as settings, a partir de um service discovery)
+
+
+Auth Service -> Valida tudo
+Key Access -> Gera e valida a achave de acesso do cliente
+LiveStreamService ->

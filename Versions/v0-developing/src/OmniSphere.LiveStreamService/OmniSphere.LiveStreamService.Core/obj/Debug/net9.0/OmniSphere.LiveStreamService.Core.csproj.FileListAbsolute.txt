@@ -22,3 +22,15 @@
 /run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/refint/OmniSphere.LiveStreamService.Core.dll
 /run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.pdb
 /run/media/jorge/HD - 1/Documents/Git-Clones/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/ref/OmniSphere.LiveStreamService.Core.dll
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/bin/Debug/net9.0/OmniSphere.LiveStreamService.Core.deps.json
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/bin/Debug/net9.0/OmniSphere.LiveStreamService.Core.dll
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/bin/Debug/net9.0/OmniSphere.LiveStreamService.Core.pdb
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.AssemblyInfoInputs.cache
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.AssemblyInfo.cs
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.csproj.CoreCompileInputs.cache
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.sourcelink.json
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.dll
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/refint/OmniSphere.LiveStreamService.Core.dll
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/OmniSphere.LiveStreamService.Core.pdb
+/home/jorge/Projects/OmniSphere/Versions/v0-developing/src/OmniSphere.LiveStreamService/OmniSphere.LiveStreamService.Core/obj/Debug/net9.0/ref/OmniSphere.LiveStreamService.Core.dll

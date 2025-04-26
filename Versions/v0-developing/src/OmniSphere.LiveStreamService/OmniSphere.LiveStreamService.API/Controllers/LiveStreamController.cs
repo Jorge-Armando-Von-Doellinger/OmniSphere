@@ -14,7 +14,7 @@ public class LiveStreamController : ControllerBase
     {
         _liveStreamUseCase = liveStreamUseCase;
     }
-    
+
     [HttpPost("register")]
     public async Task<IActionResult> RegisterLive([FromBody] LiveEntity live)
     {
@@ -22,10 +22,10 @@ public class LiveStreamController : ControllerBase
         var registeredLive = await _liveStreamUseCase.RegisterAsync(live);
         return Ok(registeredLive);
     }
-    
-    
+
+
     /// <summary>
-    /// This "name" is the key access. Placed this name for the obs studio can send a key access!
+    ///     This "name" is the key access. Placed this name for the obs studio can send a key access!
     /// </summary>
     /// <param name="name"></param>
     /// <returns> CODE 200 </returns>

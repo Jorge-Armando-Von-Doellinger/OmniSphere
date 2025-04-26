@@ -13,6 +13,7 @@ public class RedisDatabaseFactory : IRedisDatabaseFactory
     {
         _settings = settings.Value;
     }
+
     public IDatabase GetDatabase()
     {
         return ConnectionMultiplexer

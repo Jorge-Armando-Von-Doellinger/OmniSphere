@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using MongoDB.Driver;
 using OmniSphere.LiveStreamService.Infrastructure.Exceptions;
 using OmniSphere.LiveStreamService.Infrastructure.Persistence.Database.MongoDb.Interfaces;

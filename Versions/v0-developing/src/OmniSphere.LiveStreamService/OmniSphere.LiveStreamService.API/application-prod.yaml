@@ -10,10 +10,4 @@ Database:
 Cache:
   Redis:
     ConnectionString: redis-container:6379
-Storage:
-  PhysicalStorage:
-    BaseHlsPath: /app/hls/
-    BaseVideoPath: /app/video/
-    StorageType: Physical-Container
-
 AllowedHosts: "*"

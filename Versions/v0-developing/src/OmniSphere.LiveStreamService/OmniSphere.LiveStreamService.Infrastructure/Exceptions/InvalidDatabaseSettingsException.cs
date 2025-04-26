@@ -7,6 +7,7 @@ public class InvalidDatabaseSettingsException : Exception
     }
 
     public InvalidDatabaseSettingsException() : base(
-        "Invalid settings! Please, verify the settings applied and try again.") 
-    { }
+        "Invalid settings! Please, verify the settings applied and try again.")
+    {
+    }
 }

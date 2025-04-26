@@ -1,10 +1,8 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using OmniSphere.LiveStreamService.Core.Entity;
 using OmniSphere.LiveStreamService.Core.Interfaces.Repository;
 using OmniSphere.LiveStreamService.Infrastructure.Exceptions;
-using OmniSphere.LiveStreamService.Infrastructure.Persistence.Database.MongoDb;
 using OmniSphere.LiveStreamService.Infrastructure.Persistence.Database.MongoDb.Interfaces;
 using OmniSphere.LiveStreamService.Infrastructure.Persistence.Database.MongoDb.Settings;
 
@@ -17,7 +15,8 @@ public class LiveRepository : ILiveRepository
     public LiveRepository(IMongoDbCollectionFactory collectionFactory,
         IOptions<MongoDbSettings> settings)
     {
-        var collectionName = settings.Value.CollectionName ?? throw new InvalidDatabaseSettingsException("Collection name is required");
+        var collectionName = settings.Value.CollectionName ??
+                             throw new InvalidDatabaseSettingsException("Collection name is required");
         _collection = collectionFactory.GetCollection<LiveEntity>(settings.Value.CollectionName);
     }
 
@@ -41,8 +40,10 @@ public class LiveRepository : ILiveRepository
 
     public async Task UpdateAsync(LiveEntity live)
     {
-        var latest = await this.GetLatestByKeyAccessAsync(live.KeyAccess); // Its already does the validation, where it returns an exception case null!
-        latest.FinalizedAt = live.FinalizedAt; 
+        var latest =
+            await GetLatestByKeyAccessAsync(live
+                .KeyAccess); // Its already does the validation, where it returns an exception case null!
+        latest.FinalizedAt = live.FinalizedAt;
         latest.Description = live.Description;
         latest.Title = live.Title;
         latest.StartedAt = live.StartedAt;

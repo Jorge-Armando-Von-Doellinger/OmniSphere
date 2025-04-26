@@ -5,10 +5,10 @@ namespace OmniSphere.LiveStreamService.Infrastructure.DependencyInjection.Settin
 
 internal static class AddInfrastructureSettings
 {
-    internal static IServiceCollection InjectSettingsLayer(this IServiceCollection services, IConfiguration configuration)
+    internal static IServiceCollection InjectSettingsLayer(this IServiceCollection services,
+        IConfiguration configuration)
     {
         services.AddDatabaseSettingsDI(configuration);
-        services.AddStorageSettingsInjection(configuration);
         services.AddCacheDatabaseSettingsDI(configuration);
         return services;
     }

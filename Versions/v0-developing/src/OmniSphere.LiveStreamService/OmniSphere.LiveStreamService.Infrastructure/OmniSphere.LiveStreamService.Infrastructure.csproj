@@ -7,23 +7,23 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Persistence\Cache\Redis\Repository\" />
-      <Folder Include="Persistence\Database\" />
-      <Folder Include="Services\Converter\" />
+        <Folder Include="Persistence\Cache\Redis\Repository\"/>
+        <Folder Include="Persistence\Database\"/>
+        <Folder Include="Services\Converter\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OmniSphere.LiveStreamService.Core\OmniSphere.LiveStreamService.Core.csproj" />
+        <ProjectReference Include="..\OmniSphere.LiveStreamService.Core\OmniSphere.LiveStreamService.Core.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0-preview.3.25171.5" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-preview.3.25171.5" />
-      <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0-preview.3.25171.5" />
-      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.0-preview.3.25171.5" />
-      <PackageReference Include="MongoDB.Driver" Version="3.3.0" />
-      <PackageReference Include="StackExchange.Redis" Version="2.8.31" />
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0-preview.3.25171.5"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-preview.3.25171.5"/>
+        <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0-preview.3.25171.5"/>
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.0-preview.3.25171.5"/>
+        <PackageReference Include="MongoDB.Driver" Version="3.3.0"/>
+        <PackageReference Include="StackExchange.Redis" Version="2.8.31"/>
     </ItemGroup>
 
 </Project>

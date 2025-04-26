@@ -1,0 +1,17 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: KeyAccess
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/keyaccess
+  jackson:
+    date-format: "yyyy-MM-dd'T'HH:mm:ss"
+logging:
+  level:
+    root: ERROR
+    org.springframework.web: ERROR
+    org.hibernate: ERROR
+
+

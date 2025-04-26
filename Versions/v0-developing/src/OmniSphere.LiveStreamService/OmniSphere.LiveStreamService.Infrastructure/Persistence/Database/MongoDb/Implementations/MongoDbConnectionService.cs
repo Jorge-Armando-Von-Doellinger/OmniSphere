@@ -1,7 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using OmniSphere.LiveStreamService.Core.Entity;
 using OmniSphere.LiveStreamService.Infrastructure.Exceptions;
 using OmniSphere.LiveStreamService.Infrastructure.Persistence.Database.MongoDb.Interfaces;
 using OmniSphere.LiveStreamService.Infrastructure.Persistence.Database.MongoDb.Settings;
@@ -16,7 +15,7 @@ public class MongoDbConnectionService : IMongoDbConnectionService
 
     // Responsavel pela conexão com o MongoDb
     // Possui metodos para pegar as configurações
-    public MongoDbConnectionService(IConfiguration configuration, 
+    public MongoDbConnectionService(IConfiguration configuration,
         IOptionsMonitor<MongoDbSettings> settings)
     {
         _configuration = configuration;
@@ -29,18 +28,23 @@ public class MongoDbConnectionService : IMongoDbConnectionService
     {
         try
         {
-            return new MongoClient(this.GetConnectionString())
-                .GetDatabase(this.GetDatabaseName());
+            return new MongoClient(GetConnectionString())
+                .GetDatabase(GetDatabaseName());
         }
         catch
         {
             throw new FailedToConnectOnDatabaseException();
         }
     }
-        
+
     private string GetConnectionString()
-        => _settings.ConnectionString ?? throw new InvalidDatabaseSettingsException("Connection string is missing.");
+    {
+        return _settings.ConnectionString ??
+               throw new InvalidDatabaseSettingsException("Connection string is missing.");
+    }
 
     private string GetDatabaseName()
-        => _settings.DatabaseName ?? throw new InvalidDatabaseSettingsException("Database name is missing.");
+    {
+        return _settings.DatabaseName ?? throw new InvalidDatabaseSettingsException("Database name is missing.");
+    }
 }

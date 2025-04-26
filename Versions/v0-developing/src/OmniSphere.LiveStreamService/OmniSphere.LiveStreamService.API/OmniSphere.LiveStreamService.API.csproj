@@ -9,18 +9,18 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2"/>
-        <PackageReference Include="NetEscapades.Configuration.Yaml" Version="3.1.0" />
+        <PackageReference Include="NetEscapades.Configuration.Yaml" Version="3.1.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OmniSphere.LiveStreamService.Application\OmniSphere.LiveStreamService.Application.csproj" />
-      <ProjectReference Include="..\OmniSphere.LiveStreamService.Infrastructure\OmniSphere.LiveStreamService.Infrastructure.csproj" />
+        <ProjectReference Include="..\OmniSphere.LiveStreamService.Application\OmniSphere.LiveStreamService.Application.csproj"/>
+        <ProjectReference Include="..\OmniSphere.LiveStreamService.Infrastructure\OmniSphere.LiveStreamService.Infrastructure.csproj"/>
     </ItemGroup>
 
 </Project>
