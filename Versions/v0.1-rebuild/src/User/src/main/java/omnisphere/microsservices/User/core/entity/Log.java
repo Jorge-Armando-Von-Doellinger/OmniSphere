@@ -1,13 +1,14 @@
 package omnisphere.microsservices.User.core.entity;
 
-import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
 import omnisphere.microsservices.User.core.enums.ErrorLevel;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -25,7 +26,6 @@ public class Log {
         this.exception = exception;
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private final ErrorLevel level;
     private final String message;
@@ -35,5 +35,5 @@ public class Log {
 
     @Setter(AccessLevel.NONE)
     @CreatedDate
-    private Date createdAt;
+    private LocalDateTime createdAt;
 }

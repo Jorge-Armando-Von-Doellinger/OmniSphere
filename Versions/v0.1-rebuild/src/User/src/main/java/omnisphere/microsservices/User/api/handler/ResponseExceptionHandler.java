@@ -38,6 +38,7 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Throwable.class)
     public ResponseEntity<String> internalErrorHandle(Throwable ex) {
+        System.out.println(ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error! For more details, see logs");
     }
 }

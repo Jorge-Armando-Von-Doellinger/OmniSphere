@@ -1,8 +1,9 @@
 package omnisphere.microsservices.User.api.controllers;
 
 import lombok.AllArgsConstructor;
-import omnisphere.microsservices.User.api.requests.UserRequest;
-import omnisphere.microsservices.User.application.services.interfaces.IUserService;
+import omnisphere.microsservices.User.api.annotations.CurrentUser;
+import omnisphere.microsservices.User.application.dto.UserDTO;
+import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
 import omnisphere.microsservices.User.core.entity.User;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -13,20 +14,24 @@ import reactor.core.publisher.Mono;
 public class UserController {
     private final IUserService useCase;
 
-    @GetMapping("/{id}")
-    public Mono<User> findById(@RequestBody UserRequest request) {
-        return useCase.findById(request.getUserId());
+    @GetMapping
+    public Mono<User> findById(@CurrentUser String userId) {
+        return useCase.findById(userId);
+    }
+
+    @PostMapping
+    public Mono<User> create(@RequestBody UserDTO dto) {
+        var user = useCase.create(dto);
+        return user;
     }
 
     @PutMapping
-    public Mono<User> update(@RequestBody UserRequest request) {
-        var updated = useCase.update(request.getUserId(),
-                request.getModel());
+    public Mono<User> update(@RequestBody UserDTO dto, @CurrentUser String userId) {
+        var updated = useCase.update(userId, dto);
         return updated;
     }
     @DeleteMapping
-    public Mono<User> delete(@RequestBody UserRequest request) {
-        return useCase.delete(request.getUserId());
+    public Mono<User> delete(@CurrentUser String userId) {
+        return useCase.delete(userId);
     }
-
 }

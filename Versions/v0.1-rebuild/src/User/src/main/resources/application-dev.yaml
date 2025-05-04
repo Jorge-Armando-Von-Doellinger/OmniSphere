@@ -1,31 +1,35 @@
+server:
+    port: 5000
 spring:
     application:
         name: User
     r2dbc:
-        url: r2dbc:postgresql://localhost:5432/user
+        url: r2dbc:postgresql://localhost:5432/users_database?currentSchema=public
         username: ${PG_USER}
         password: ${PG_PASS}
-        driver-class-name: org.postgresql.Driver
-    sql:
-        init:
-            mode: always
-    jpa:
-        hibernate:
-            ddl-auto: update
-        show-sql: true
+        pool:
+            initial-size: 5
+            max-size: 20
+    r2dbc-migrate:
+        locations: classpath:/db/sql/migrations
+    flyway:
+        enabled: true
+        locations: classpath:/db/sql/migrations
     elasticsearch:
         uris: http://localhost:9200
     datasource:
+        url: jdbc:postgresql://localhost:5432/users_database
+        username: ${PG_USER}
+        password: ${PG_PASS}
         driver-class-name: org.postgresql.Driver
-        platform: postgresql
-        schema: classpath:/sql/create_tables_if_not_exists.sql
-        data: classpath:/sql/user_delete_trigger.sql
 logging:
     level:
+        org.springframework.data.r2dbc.core.R2dbcEntityTemplate: DEBUG
+        org.springframework.r2dbc.core.DatabaseClient: DEBUG
         org.springframework: ERROR
-        org.hibernate: ERROR
-        com.mongodb: ERROR
-        root: ERROR
+        org.hibernate: DEBUG
+        root: DEBUG
         org.springframework.web: ERROR
+        org.flywaydb: DEBUG
     pattern:
         console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

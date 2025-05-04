@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.application.exception.UserNotFoundException;
 import omnisphere.microsservices.User.application.mappers.UserMapper;
 import omnisphere.microsservices.User.application.dto.UserDTO;
-import omnisphere.microsservices.User.application.services.interfaces.IUserService;
+import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
 import omnisphere.microsservices.User.core.services.interfaces.cryptography.ICryptographyService;
@@ -31,7 +31,10 @@ public class UserServiceImpl implements IUserService {
     @Transactional
     public Mono<User> update(String userId, UserDTO model) {
         return findById(userId)
-                .flatMap(u -> repository.save(u));
+                .flatMap(u -> {
+                    u.update(model.username(), model.email(), model.email());
+                    return repository.save(u);
+                });
     }
 
     @Override

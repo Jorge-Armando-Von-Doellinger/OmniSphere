@@ -3,11 +3,12 @@ package omnisphere.microsservices.User.core.entity;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
+import omnisphere.microsservices.User.core.entity.base.BaseUser;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Table("tb_user")  // Mapeia a tabela 'tb_user' do banco de dados
@@ -22,18 +23,8 @@ public class User extends BaseUser {
     @Id
     @Setter(AccessLevel.NONE)
     @Column("user_id")
-    private String id;  // A chave primária (ID), provavelmente será gerado no banco ou manualmente com UUID.
+    private UUID id;
 
-    @Setter(AccessLevel.NONE)
-    private Date deletedAt = null;
-
-    public void setDeleted() {
-        this.deletedAt = new Date();
-    }
-
-    public boolean isDeleted() {
-        return deletedAt != null;
-    }
 
     // Método para atualizar os dados do usuário
     public void update(String username, String email, String password) {

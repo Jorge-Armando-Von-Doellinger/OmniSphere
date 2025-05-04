@@ -1,21 +1,23 @@
 package omnisphere.microsservices.User.core.entity;
 
-import jakarta.persistence.Id;
 import lombok.Data;
+import omnisphere.microsservices.User.core.entity.base.BaseUser;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
-@Table("update_user_table")
+@Table("tb_user_update")
 public class UserUpdate extends BaseUser {
     @Id
-    @Column("user_update_id")
+    @Column("update_id")
     private Long id;
     @Column("user_id")
-    private Long userId;
+    private UUID userId;
     @CreatedDate
     @Column("updated_at")
     private LocalDateTime updatedAt;
