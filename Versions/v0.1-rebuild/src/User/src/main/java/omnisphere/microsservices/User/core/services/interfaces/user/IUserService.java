@@ -13,4 +13,5 @@ public interface IUserService {
     Mono<User> update(User user);
     Mono<User> delete(String userId);
     Mono<User> findById(String userId);
+    Mono<User> validate(String email, String password);
 }

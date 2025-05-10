@@ -1,21 +1,24 @@
 package omnisphere.microsservices.User.core.services.interfaces.admin;
 
 
-import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 public interface IBlockService {
-    Mono<User> block(String userId, String reason);
-    Mono<User> unblock(String userId, String reason);
-
-    Mono<List<UserBlock>> findBlocksByUserId(String userId);
-    Mono<List<UserBlock>> findBlocks();
-
-    Mono<UserBlock> findLastBlockByUserId(String userId);
-
-    Mono<Boolean> isBlocked(String userId);
-    // findAllBlocked, findAllUnblocked, findAllNeverBlocked, findAllBlocks(userId)
+    /// Register the block of this userId
+    Mono<UserBlock> block(String userId, String reason);
+    /// Do a unblock on this userId
+    Mono<UserBlock> unblock(String userId, String reason);
+    /// Return all blocks of this user (active or not)
+    Mono<List<UserBlock>> findAllBlocksByUserId(String userId);
+    /// Get all blocks
+    Mono<List<UserBlock>> findAll();
+    /// Get latest block of this userIf
+    Mono<UserBlock> findLastestBlockByUserId(String userId);
+    /// Return true if contains a active block in this userId
+    Mono<Boolean> containsActive(String userId);
+    /// Return true if contains any block (activo or not) in this userId
+    Mono<Boolean> contains(String userId);
 }

@@ -49,7 +49,7 @@ public interface IUserBlockRepository extends R2dbcRepository<UserBlock, String>
             ORDER BY blocked_at DESC
             LIMIT 1
     """)
-    Mono<UserBlock> findLatestActiveBlocks(@Param("userId") UUID userId);
+    Mono<UserBlock> findLatestActiveBlocks(String userId);
 
     @Query("""
         SELECT *
@@ -60,6 +60,6 @@ public interface IUserBlockRepository extends R2dbcRepository<UserBlock, String>
         ORDER BY blocked_at DESC
         LIMIT 1
     """)
-    Mono<UserBlock> findLatestUnblocks(@Param("userId") UUID userId);
+    Mono<UserBlock> findLatestUnblocks(String userId);
 
 }
