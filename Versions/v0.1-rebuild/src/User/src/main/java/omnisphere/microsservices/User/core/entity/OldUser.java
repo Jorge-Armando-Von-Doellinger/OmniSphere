@@ -5,23 +5,33 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+
 import java.time.LocalDateTime;
+import java.util.UUID;
 
-
-@Table("tb_user_update")
-public class UserUpdate extends User {
-    @Setter
-    @Getter
+@Getter
+@Setter
+@Table("tb_old_user")
+public class OldUser extends UserFields {
     @Id
-    @Column("update_id")
+    @Column("id")
     private Long updateId;
-    @Setter
-    @Getter
+
+    @Column("user_id")
+    private UUID userId;
+
     @CreatedDate
+    @Column("created_at")
+    private LocalDateTime createdAt;
+
     @Column("updated_at")
     private LocalDateTime updatedAt;
 
-    public UserUpdate(String username, String email, String password) {
+    public OldUser(String username, String email, String password) {
         super(username, email, password);
     }
+
+    /*public UserUpdate(String username, String email, String password) {
+        super(username, email, password);
+    }*/
 }

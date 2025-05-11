@@ -11,7 +11,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/admin-management/block")
+@RequestMapping("/api/admin-management/block-removed")
 @AllArgsConstructor
 public class BlocKRemovedController {
     private final IBlockRemovedService blockRemovedService;

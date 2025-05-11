@@ -3,7 +3,7 @@ package omnisphere.microsservices.User.api.controllers.admin;
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.history.UserRemovedHistory;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserRemoved;
-import omnisphere.microsservices.User.core.entity.remove_representation.UserUpdateRemoved;
+import omnisphere.microsservices.User.core.entity.remove_representation.OldUserRemoved;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockRemovedService;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IRemovedUserManagementService;
@@ -32,7 +32,7 @@ public class RemovedUserController {
     }
 
     @GetMapping("/updates/{userId}")
-    public Flux<UserUpdateRemoved> getUsersUpdateDeleted(String userId) {
+    public Flux<OldUserRemoved> getUsersUpdateDeleted(String userId) {
         return removedUserManagementService.findUpdatesByUserId(userId);
     }
     @GetMapping("/history/{userId}")

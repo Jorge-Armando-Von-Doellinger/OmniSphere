@@ -11,24 +11,11 @@ import java.util.UUID;
 
 @Data
 @Table("tb_user_block")
-public class UserBlock  {
+public class UserBlock extends BlockFields {
     @Id
-    @Column("block_id")
-    private Long block_id;
-
-    @Column("block_reason")
-    protected String blockReason;
-
-    @Column("unblock_reason")
-    protected String unblockReason;
-
-    @CreatedDate
-    @Column("blocked_at")
-    protected LocalDateTime blockedAt;
-    protected LocalDateTime unblockedAt = null;
+    @Column("id")
+    private Long blockId;
 
     @Column("user_id")
     private UUID userId;
-
-
 }

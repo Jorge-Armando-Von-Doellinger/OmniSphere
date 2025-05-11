@@ -12,28 +12,28 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api/user")
 @AllArgsConstructor
 public class UserController {
-    private final IUserService useCase;
+    private final IUserService userService;
 
     @GetMapping
     public Mono<User> findById(@CurrentUser String userId) {
-        return useCase.findById(userId);
+        return userService.findById(userId);
     }
 
     @PostMapping
     public Mono<User> create(@RequestBody UserDTO dto) {
         var partialUser = new User(dto.username(), dto.email(), dto.password());
-        var user = useCase.create(partialUser);
+        var user = userService.create(partialUser);
         return user;
     }
 
-    @PutMapping
+    @PatchMapping
     public Mono<User> update(@RequestBody UserDTO dto, @CurrentUser String userId) {
         var partialUser = new User(dto.username(), dto.email(), dto.password());
-        var updated = useCase.update(userId, partialUser);
+        var updated = userService.update(userId, partialUser);
         return updated;
     }
     @DeleteMapping
     public Mono<User> delete(@CurrentUser String userId) {
-        return useCase.delete(userId);
+        return userService.delete(userId);
     }
 }

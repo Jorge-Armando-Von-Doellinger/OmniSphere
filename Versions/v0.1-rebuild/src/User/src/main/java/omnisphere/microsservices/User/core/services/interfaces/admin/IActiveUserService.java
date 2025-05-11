@@ -3,11 +3,11 @@ package omnisphere.microsservices.User.core.services.interfaces.admin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import omnisphere.microsservices.User.core.entity.User;
-import omnisphere.microsservices.User.core.entity.UserUpdate;
+import omnisphere.microsservices.User.core.entity.OldUser;
 import omnisphere.microsservices.User.core.services.interfaces.admin.base.IBasicUserManagement;
 import reactor.core.publisher.Mono;
 
-public interface IActiveUserService extends IBasicUserManagement<User, UserUpdate> {
+public interface IActiveUserService extends IBasicUserManagement<User, OldUser> {
     /// Locate all when contains a equals email...
     Mono<User> findByEmail(String email);
     /// Remove user

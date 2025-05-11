@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.User;
-import omnisphere.microsservices.User.core.entity.UserUpdate;
+import omnisphere.microsservices.User.core.entity.OldUser;
 import omnisphere.microsservices.User.core.entity.history.UserHistory;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
 import omnisphere.microsservices.User.core.repository.IUserUpdateRepository;
@@ -57,7 +57,7 @@ public class ActiveUserService implements IActiveUserService {
     }
 
     @Override
-    public Flux<UserUpdate> findUpdatesByUserId(String userId) {
+    public Flux<OldUser> findUpdatesByUserId(String userId) {
         return updateRepository.findByUserId(userId);
     }
     ///  Pending - modify the repository

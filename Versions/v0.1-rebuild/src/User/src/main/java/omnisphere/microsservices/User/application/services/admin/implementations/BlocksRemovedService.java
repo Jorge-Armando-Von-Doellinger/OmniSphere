@@ -10,7 +10,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-@Profile("removed")
 @AllArgsConstructor
 public class BlocksRemovedService implements IBlockRemovedService {
     private final IUserBlockRemovedRepository blockRemovedRepository;

@@ -14,7 +14,7 @@ public interface IUserRepository extends R2dbcRepository<User, String> {
 
     @Query("""
     SELECT u.* 
-    FROM users u 
+    FROM tb_user u 
     LEFT JOIN tb_user_block b ON u.id = b.user_id 
     WHERE b.id IS NULL
     """)

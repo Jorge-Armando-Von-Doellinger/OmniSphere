@@ -28,9 +28,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     @Transactional
     public Mono<User> update(String userId, User partialUser) {
-        return findById(partialUser.getDeleteId().toString())
+        return findById(userId)
                 .flatMap(u -> {
-                    u.update(partialUser.getUsername(), partialUser.getEmail(), partialUser.getPassword());
+                    var password = cryptographyService.encrypt(partialUser.getPassword());
+                    u.update(partialUser.getUsername(), partialUser.getEmail(), password);
                     return repository.save(u);
                 });
     }

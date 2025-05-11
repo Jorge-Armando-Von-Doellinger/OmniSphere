@@ -16,8 +16,7 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @Service
-@Profile("active")
-public class BlockService implements IBlockService<UserBlock> {
+public class BlockService implements IBlockService {
     private final IUserBlockRepository blockRepository;
     private final IUserRepository userRepository;
 
@@ -25,7 +24,7 @@ public class BlockService implements IBlockService<UserBlock> {
     @Override
     public Mono<UserBlock> block(String userId, String reason) {
         return blockRepository.findLatestActiveBlocks(userId)
-                .switchIfEmpty(Mono.just(make(userId, reason)));
+                .switchIfEmpty(blockRepository.save(make(userId, reason)));
     }
 
     @Override

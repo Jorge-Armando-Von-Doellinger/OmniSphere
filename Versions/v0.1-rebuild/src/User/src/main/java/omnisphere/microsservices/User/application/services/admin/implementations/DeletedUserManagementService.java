@@ -2,7 +2,7 @@ package omnisphere.microsservices.User.application.services.admin.implementation
 
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserRemoved;
-import omnisphere.microsservices.User.core.entity.remove_representation.UserUpdateRemoved;
+import omnisphere.microsservices.User.core.entity.remove_representation.OldUserRemoved;
 import omnisphere.microsservices.User.core.repository.IUserRemovedRepository;
 import omnisphere.microsservices.User.core.repository.IUserUpdateRemovedRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IRemovedUserManagementService;
@@ -37,7 +37,7 @@ public class DeletedUserManagementService implements IRemovedUserManagementServi
     }
 
     @Override
-    public Flux<UserUpdateRemoved> findUpdatesByUserId(String userId) {
+    public Flux<OldUserRemoved> findUpdatesByUserId(String userId) {
         return updateRepository.findByUserId(userId);
     }
     ///  Needs a repair - modify the repository!

@@ -7,13 +7,11 @@ import omnisphere.microsservices.User.core.repository.IUserBlockRepository;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
 import omnisphere.microsservices.User.core.repository.IUserUpdateRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-@Profile("active")
 @AllArgsConstructor
 public class HistoryService implements IHistoryService<UserHistory> {
     private final IUserRepository userRepository;

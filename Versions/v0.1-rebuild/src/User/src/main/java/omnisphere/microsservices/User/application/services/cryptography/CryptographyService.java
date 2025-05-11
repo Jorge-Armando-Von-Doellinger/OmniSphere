@@ -9,6 +9,7 @@ public class CryptographyService implements ICryptographyService {
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     @Override
     public String encrypt(String stringValue) {
+        if(stringValue == null) return null;
         return encoder.encode(stringValue);
     }
 

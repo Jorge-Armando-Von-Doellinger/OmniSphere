@@ -10,6 +10,8 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
+/// Record all blocks made on the user(s) - OBS: CANNOT BE TWO OR MORE ACTIVE BLOCKS IN THE SAME USER_ID
+
 @Repository
 public interface IUserBlockRepository extends R2dbcRepository<UserBlock, String> {
     //@Query("SELECT * FROM tb_user_block WHERE user_id = $1")
@@ -45,7 +47,7 @@ public interface IUserBlockRepository extends R2dbcRepository<UserBlock, String>
             FROM tb_user_block
             WHERE blocked_at IS NOT NULL
             AND unblocked_at IS NULL
-            AND user_id = :userId
+            AND user_id = :userId::uuid
             ORDER BY blocked_at DESC
             LIMIT 1
     """)
@@ -56,7 +58,7 @@ public interface IUserBlockRepository extends R2dbcRepository<UserBlock, String>
         FROM tb_user_block
         WHERE blocked_at IS NOT NULL 
         AND unblocked_at IS NULL 
-        AND user_id = :userId
+        AND user_id = :userId::uuid
         ORDER BY blocked_at DESC
         LIMIT 1
     """)

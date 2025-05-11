@@ -14,7 +14,7 @@ import java.util.Map;
 
 @Configuration
 public class MigrationInitializer {
-
+    private final String PATH = "db/sql/migrations/";
     private final DatabaseClient client;
 
     public MigrationInitializer(DatabaseClient client) {
@@ -25,13 +25,10 @@ public class MigrationInitializer {
     public ApplicationRunner runMigrations(DatabaseClient client) {
         return args -> {
             Map<String, String> schemaToFile = Map.of(
-                    //"V1__create_tables", "db/sql/migrations/V1__create_tables.sql",
-                    "V1__audit_triggers", "db/sql/migrations/user_delete_trigger.sql"
+                    "V1__create_tables", PATH + "V1__create_tables.sql",
+                    "V1__audit_triggers", PATH + "user_delete_trigger.sql"
             );
-
             Flux.fromIterable(schemaToFile.entrySet())
-
-
                     .concatMap(entry -> applyMigration(client, entry.getKey(), entry.getValue()))
                     .then()
                     .block();
@@ -42,8 +39,7 @@ public class MigrationInitializer {
         try {
             ClassPathResource resource = new ClassPathResource(path);
             String sql = new String(resource.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
-            return client.sql(sql)
-                    .then();
+            return client.sql(sql).then();
         } catch (Exception e) {
             return Mono.error(e);
         }
