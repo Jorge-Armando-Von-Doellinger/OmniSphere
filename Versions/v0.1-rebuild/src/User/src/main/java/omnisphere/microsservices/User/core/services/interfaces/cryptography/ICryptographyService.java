@@ -4,5 +4,5 @@ import reactor.core.publisher.Mono;
 
 public interface ICryptographyService {
     String encrypt(String stringValue);
-    boolean verify(String value1, String value2);
+    boolean verify(String value, String encoded);
 }

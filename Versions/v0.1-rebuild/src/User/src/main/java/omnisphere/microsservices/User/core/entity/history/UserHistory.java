@@ -7,7 +7,7 @@ import omnisphere.microsservices.User.core.entity.UserUpdate;
 import java.util.List;
 
 
-public record UserHistory (User user, List<UserUpdate> updates, List<UserBlock> blocks)
+public record UserHistory (User current, List<UserUpdate> updates, List<UserBlock> blocks)
         implements IHistory<User, UserUpdate, UserBlock> {
 
 }

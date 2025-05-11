@@ -1,4 +1,4 @@
-package omnisphere.microsservices.User.api.controllers;
+package omnisphere.microsservices.User.api.controllers.user;
 
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.api.annotations.CurrentUser;
@@ -21,13 +21,15 @@ public class UserController {
 
     @PostMapping
     public Mono<User> create(@RequestBody UserDTO dto) {
-        var user = useCase.create(dto);
+        var partialUser = new User(dto.username(), dto.email(), dto.password());
+        var user = useCase.create(partialUser);
         return user;
     }
 
     @PutMapping
     public Mono<User> update(@RequestBody UserDTO dto, @CurrentUser String userId) {
-        var updated = useCase.update(userId, dto);
+        var partialUser = new User(dto.username(), dto.email(), dto.password());
+        var updated = useCase.update(userId, partialUser);
         return updated;
     }
     @DeleteMapping

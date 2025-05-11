@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository
-public interface IUserDeletedRepository extends R2dbcRepository<UserRemoved, String> {
+public interface IUserRemovedRepository extends R2dbcRepository<UserRemoved, String> {
     Flux<UserRemoved> findByEmail(String email);
     Flux<UserRemoved> findByUsername(String username);
     @Query("SELECT * FROM tb_user_update WHERE user_id = :userId")

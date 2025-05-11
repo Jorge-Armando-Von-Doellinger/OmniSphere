@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-public interface IUserUpdateDeletedRepository extends R2dbcRepository<UserUpdateRemoved, String> {
+public interface IUserUpdateRemovedRepository extends R2dbcRepository<UserUpdateRemoved, String> {
     @Query("""
         SELECT *
         FROM tb_user_update_removed uur

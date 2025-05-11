@@ -10,7 +10,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 @Configuration
 @EnableWebMvc
 @AllArgsConstructor
-public class WebConfig implements WebMvcConfigurer {
+public class WebResolverConfig implements WebMvcConfigurer {
     private final CurrentUserArgumentResolver currentUserArgumentResolver;
 
     @Override

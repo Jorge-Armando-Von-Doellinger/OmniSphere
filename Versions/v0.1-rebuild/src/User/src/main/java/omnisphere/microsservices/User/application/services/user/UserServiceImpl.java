@@ -1,9 +1,8 @@
-package omnisphere.microsservices.User.application.services.implementations;
+package omnisphere.microsservices.User.application.services.user;
 
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.application.exception.UserNotFoundException;
 import omnisphere.microsservices.User.application.mappers.UserMapper;
-import omnisphere.microsservices.User.application.dto.UserDTO;
 import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
@@ -21,18 +20,17 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     @Transactional
-    public Mono<User> create(UserDTO model) {
-        var user = mapper.map(model);
+    public Mono<User> create(User user) {
         user.setPassword(cryptographyService.encrypt(user.getPassword()));
         return repository.save(user);
     }
 
     @Override
     @Transactional
-    public Mono<User> update(String userId, UserDTO model) {
-        return findById(userId)
+    public Mono<User> update(String userId, User partialUser) {
+        return findById(partialUser.getDeleteId().toString())
                 .flatMap(u -> {
-                    u.update(model.username(), model.email(), model.email());
+                    u.update(partialUser.getUsername(), partialUser.getEmail(), partialUser.getPassword());
                     return repository.save(u);
                 });
     }
@@ -54,11 +52,11 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    @Transactional
-    public Mono<User> findByCredentials(UserDTO model) {
-        return repository
-                .findByEmail(model.email())
-                .filter(x -> cryptographyService.verify(model.password(), x.getPassword()))
-                .switchIfEmpty(Mono.error(UserNotFoundException::new));
+    public Mono<User> validate(String email, String password) {
+        return repository.findByEmail(email).map(user ->
+                cryptographyService.verify(password, user.getPassword())
+                    ? user : null // If is valid, return user. Else, return null!
+        ).switchIfEmpty(Mono.error(UserNotFoundException::new));
     }
+
 }

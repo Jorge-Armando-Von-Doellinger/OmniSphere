@@ -9,8 +9,10 @@ public interface IUserService {
     // AUDIT SERVICE SEMPRE USANDO O ID DO USUARIO
 
     // FAZER UM SERVICE PARA O ADMIN, CUSTOMIZANDO O AUDIT (MELHOR GERENCIAMENTO)
-    Mono<User> create(User model);
-    Mono<User> update(User user);
+    Mono<User> create(User user);
+    /// Sends a partial user, containing username, email and/or password
+    /// After, this method update only uses the filled fields
+    Mono<User> update(String userId, User partialUser);
     Mono<User> delete(String userId);
     Mono<User> findById(String userId);
     Mono<User> validate(String email, String password);

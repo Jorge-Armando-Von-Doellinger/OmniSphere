@@ -1,24 +1,27 @@
 package omnisphere.microsservices.User.core.entity;
 
-import lombok.Data;
-import omnisphere.microsservices.User.core.entity.base.BaseUser;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
-
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-@Data
+
 @Table("tb_user_update")
-public class UserUpdate extends BaseUser {
+public class UserUpdate extends User {
+    @Setter
+    @Getter
     @Id
     @Column("update_id")
-    private Long id;
-    @Column("user_id")
-    private UUID userId;
+    private Long updateId;
+    @Setter
+    @Getter
     @CreatedDate
     @Column("updated_at")
     private LocalDateTime updatedAt;
+
+    public UserUpdate(String username, String email, String password) {
+        super(username, email, password);
+    }
 }

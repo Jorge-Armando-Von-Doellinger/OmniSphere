@@ -1,9 +1,8 @@
-package omnisphere.microsservices.User.application.services.implementations;
+package omnisphere.microsservices.User.application.services.cryptography;
 
 import omnisphere.microsservices.User.core.services.interfaces.cryptography.ICryptographyService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Mono;
 
 @Service
 public class CryptographyService implements ICryptographyService {
@@ -14,7 +13,7 @@ public class CryptographyService implements ICryptographyService {
     }
 
     @Override
-    public boolean verify(String value1, String value2) {
-        return encoder.matches(value1, value2);
+    public boolean verify(String value, String encoded) {
+        return encoder.matches(value, encoded);
     }
 }

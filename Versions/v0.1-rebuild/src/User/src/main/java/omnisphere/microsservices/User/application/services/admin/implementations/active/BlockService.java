@@ -1,4 +1,4 @@
-package omnisphere.microsservices.User.application.services.admin.implementations;
+package omnisphere.microsservices.User.application.services.admin.implementations.active;
 
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.UserBlock;
@@ -6,16 +6,18 @@ import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
 import omnisphere.microsservices.User.core.repository.IUserBlockRepository;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
 @Service
-public class BlockService implements IBlockService {
+@Profile("active")
+public class BlockService implements IBlockService<UserBlock> {
     private final IUserBlockRepository blockRepository;
     private final IUserRepository userRepository;
 
@@ -38,22 +40,22 @@ public class BlockService implements IBlockService {
     }
 
     @Override
-    public Mono<List<UserBlock>> findAllBlocksByUserId(String userId) {
-        return blockRepository.findByUserId(userId).collectList();
+    public Flux<UserBlock> findAllByUserId(String userId) {
+        return blockRepository.findByUserId(userId);
     }
 
     @Override
-    public Mono<List<UserBlock>> findAll() {
-        return blockRepository.findAll().collectList();
+    public Flux<UserBlock> findAll() {
+        return blockRepository.findAll();
     }
 
     @Override
-    public Mono<UserBlock> findLastestBlockByUserId(String userId) {
+    public Mono<UserBlock> findLastestByUserId(String userId) {
         return blockRepository.findLatestActiveBlocks(userId);
     }
 
     @Override
-    public Mono<Boolean> containsActive(String userId) {
+    public Mono<Boolean> containsActiveBlock(String userId) {
         return blockRepository.findLatestActiveBlocks(userId).hasElement();
     }
 

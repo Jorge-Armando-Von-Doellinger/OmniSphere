@@ -6,5 +6,5 @@ import omnisphere.microsservices.User.core.entity.remove_representation.UserUpda
 
 import java.util.List;
 
-public record UserRemovedHistory (UserRemoved user, List<UserUpdateRemoved> updates, List<UserBlockRemoved> blocks)
+public record UserRemovedHistory (UserRemoved current, List<UserUpdateRemoved> updates, List<UserBlockRemoved> blocks)
         implements IHistory<UserRemoved, UserUpdateRemoved, UserBlockRemoved> { }

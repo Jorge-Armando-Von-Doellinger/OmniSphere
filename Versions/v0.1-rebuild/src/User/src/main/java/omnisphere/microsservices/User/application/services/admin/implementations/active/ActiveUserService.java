@@ -1,4 +1,4 @@
-package omnisphere.microsservices.User.application.services.admin.implementations;
+package omnisphere.microsservices.User.application.services.admin.implementations.active;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,19 +7,18 @@ import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.entity.UserUpdate;
 import omnisphere.microsservices.User.core.entity.history.UserHistory;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
+import omnisphere.microsservices.User.core.repository.IUserUpdateRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
-import omnisphere.microsservices.User.core.services.interfaces.admin.IUserManagementService;
-import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
+import omnisphere.microsservices.User.core.services.interfaces.admin.IActiveUserService;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class UserManagementService implements IUserManagementService {
+public class ActiveUserService implements IActiveUserService {
     private final IUserRepository userRepository;
-    private final IUserService userService;
+    private final IUserUpdateRepository updateRepository;
     private final IHistoryService<UserHistory> historyService;
 
     @Override
@@ -31,14 +30,14 @@ public class UserManagementService implements IUserManagementService {
     public Mono<User> update(String userId, User user) {
         var currentUser = userRepository.findById(userId).flatMap(x -> {
             x.update(user.getUsername(), x.getEmail(), x.getPassword());
-            return userService.update(x);
+            return userRepository.save(x);
         });
         return currentUser;
     }
 
     @Override
-    public Mono<User> findById(String userDeletedId) {
-        return userService.findById(userDeletedId);
+    public Mono<User> findByUserId(String userDeletedId) {
+        return userRepository.findById(userDeletedId);
     }
 
     @Override
@@ -46,28 +45,24 @@ public class UserManagementService implements IUserManagementService {
         return userRepository.findByEmail(email);
     }
 
+    ///  Corrigir - modificar repositorio!
     @Override
-    public Mono<User> findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public Flux<User> findWhereContainsUsername(String username) {
+        return userRepository.findByUsername(username).flux();
     }
 
     @Override
-    public Mono<UserHistory> getUserHistory(String userId) {
-        return historyService.make(userId);
+    public Flux<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override
-    public Mono<List<User>> getAllUserHistory() {
-        return null;
+    public Flux<UserUpdate> findUpdatesByUserId(String userId) {
+        return updateRepository.findByUserId(userId);
     }
-
+    ///  Pending - modify the repository
     @Override
-    public Mono<List<User>> findAll() {
-        return null;
-    }
-
-    @Override
-    public Mono<List<UserUpdate>> findUpdatesByUserId(String userId) {
+    public Flux<User> findUsersBlocked() {
         return null;
     }
 }
