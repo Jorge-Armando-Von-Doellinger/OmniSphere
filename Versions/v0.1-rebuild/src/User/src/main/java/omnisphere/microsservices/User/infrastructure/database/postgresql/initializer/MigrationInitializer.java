@@ -25,7 +25,7 @@ public class MigrationInitializer {
     public ApplicationRunner runMigrations(DatabaseClient client) {
         return args -> {
             Map<String, String> schemaToFile = Map.of(
-                    "V1__create_tables", PATH + "V1__create_tables.sql",
+                     //"V1__create_tables", PATH + "V1__create_tables.sql",
                     "V1__audit_triggers", PATH + "user_delete_trigger.sql"
             );
             Flux.fromIterable(schemaToFile.entrySet())

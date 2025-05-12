@@ -21,7 +21,7 @@ public class ValidateRequiredHeaders implements HandlerInterceptor {
         if(!valid) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("Unauthorized: Missing required data to validate!");
-            return false;
+            return true;
         }
         return true;
     }

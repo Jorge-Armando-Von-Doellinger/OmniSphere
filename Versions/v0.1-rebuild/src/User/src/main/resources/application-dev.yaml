@@ -1,5 +1,10 @@
 server:
     port: 5000
+    tomcat:
+        connection-timeout: 20000 # Tempo de timeout para aceitar uma conexão (em milissegundos)
+        keep-alive-timeout: 15000 # Tempo máximo para manter a conexão aberta sem enviar dados
+        max-keep-alive-requests: 100 # Número máximo de requisições para uma conexão persistente
+        max-http-header-size: 8192
 spring:
     application:
         name: User
@@ -10,6 +15,7 @@ spring:
         pool:
             initial-size: 5
             max-size: 20
+            max-wait: 30000
     r2dbc-migrate:
         locations: classpath:/db/sql/migrations
     flyway:
@@ -31,5 +37,7 @@ logging:
         root: DEBUG
         org.springframework.web: ERROR
         org.flywaydb: DEBUG
+        org.apache.coyote: ERROR # Validar o motivos dos erros sem isso...
+        org.apache.tomcat: ERROR # Validar o motivos dos erros sem isso...
     pattern:
         console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

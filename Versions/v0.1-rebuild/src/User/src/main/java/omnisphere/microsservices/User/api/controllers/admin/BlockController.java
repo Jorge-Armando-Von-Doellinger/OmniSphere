@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.api.requests.SensitiveRequest;
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -15,38 +16,45 @@ public class BlockController {
     private final IBlockService blockService;
 
     @PostMapping("/{userId}")
-    public Mono<UserBlock> blockUser(@PathVariable String userId, @RequestBody String reason) {
-        System.out.println(reason + userId);
-        return blockService.block(userId, reason);
+    public ResponseEntity<Mono<UserBlock>> blockUser(@PathVariable String userId, @RequestBody String reason) {
+        System.out.println("Razão: " + reason + ", UserId: " + userId);
+        Mono<UserBlock> result = blockService.block(userId, reason);
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/unblock/{userId}")
-    public Mono<UserBlock> unblockUser(@PathVariable String userId, @RequestBody String reason) {
-        return blockService.unblock(userId, reason);
+    public ResponseEntity<Mono<UserBlock>> unblockUser(@PathVariable String userId, @RequestBody String reason) {
+        Mono<UserBlock> result = blockService.unblock(userId, reason);
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping
-    public Flux<UserBlock> getBlocks() {
-        return blockService.findAll();
+    public ResponseEntity<Flux<UserBlock>> getBlocks() {
+        Flux<UserBlock> result = blockService.findAll();
+        return ResponseEntity.ok(result);
     }
+
     @GetMapping("/{userId}")
-    public Flux<UserBlock> getBlocksByUserId(@PathVariable String userId) {
-        return blockService.findAllByUserId(userId);
+    public ResponseEntity<Flux<UserBlock>> getBlocksByUserId(@PathVariable String userId) {
+        Flux<UserBlock> result = blockService.findAllByUserId(userId);
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/latest/{userId}")
-    public Mono<UserBlock> findLatest(@PathVariable String userId) {
-        return blockService.findLastestByUserId(userId);
+    public ResponseEntity<Mono<UserBlock>> findLatest(@PathVariable String userId) {
+        Mono<UserBlock> result = blockService.findLastestByUserId(userId);
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/contains-active")
-    public Mono<Boolean> containsActiveBlock(@PathVariable String userId) {
-        return blockService.containsActiveBlock(userId);
+    public ResponseEntity<Mono<Boolean>> containsActiveBlock(@PathVariable String userId) {
+        Mono<Boolean> result = blockService.containsActiveBlock(userId);
+        return ResponseEntity.ok(result);
     }
 
-
     @GetMapping("/contains/{userId}")
-    public Mono<UserBlock> containsBlock(@PathVariable String userId) {
-        return blockService.findLastestByUserId(userId);
+    public ResponseEntity<Mono<UserBlock>> containsBlock(@PathVariable String userId) {
+        Mono<UserBlock> result = blockService.findLastestByUserId(userId);
+        return ResponseEntity.ok(result);
     }
 }

@@ -7,7 +7,9 @@ import omnisphere.microsservices.User.core.entity.remove_representation.OldUserR
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockRemovedService;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IRemovedUserManagementService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -22,21 +24,22 @@ public class RemovedUserController {
     private final IHistoryService<UserRemovedHistory> historyService;
 
     @GetMapping("/history")
-    public Flux<UserRemovedHistory> getAllUserDeletionHistory() {
-        return historyService.make();
+    public ResponseEntity<Flux<UserRemovedHistory>> getAllUserDeletionHistory() {
+        return ResponseEntity.ok(historyService.make());
     }
 
-    @GetMapping
-    public Flux<UserRemoved> getUsersRemoved() {
-        return removedUserManagementService.findAll();
+    @GetMapping("/removed")
+    public ResponseEntity<Flux<UserRemoved>> getUsersRemoved() {
+        return ResponseEntity.ok(removedUserManagementService.findAll());
     }
 
     @GetMapping("/updates/{userId}")
-    public Flux<OldUserRemoved> getUsersUpdateDeleted(String userId) {
-        return removedUserManagementService.findUpdatesByUserId(userId);
+    public ResponseEntity<Flux<OldUserRemoved>> getUsersUpdateDeleted(@PathVariable String userId) {
+        return ResponseEntity.ok(removedUserManagementService.findUpdatesByUserId(userId));
     }
+
     @GetMapping("/history/{userId}")
-    public Mono<UserRemovedHistory> getUserDeletionHistory(String userId) {
-        return historyService.make(userId);
+    public ResponseEntity<Mono<UserRemovedHistory>> getUserDeletionHistory(@PathVariable String userId) {
+        return ResponseEntity.ok(historyService.make(userId));
     }
 }

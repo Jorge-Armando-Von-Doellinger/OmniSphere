@@ -30,8 +30,4 @@ public class OldUser extends UserFields {
     public OldUser(String username, String email, String password) {
         super(username, email, password);
     }
-
-    /*public UserUpdate(String username, String email, String password) {
-        super(username, email, password);
-    }*/
 }
