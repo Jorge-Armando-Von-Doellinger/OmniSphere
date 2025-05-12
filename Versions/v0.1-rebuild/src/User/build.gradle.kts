@@ -36,6 +36,8 @@ dependencies {
 
 	implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
 
+	implementation("org.elasticsearch.client:elasticsearch-rest-high-level-client:7.10.0")
+
 	implementation("org.flywaydb:flyway-core")
 
 	compileOnly("org.projectlombok:lombok")

@@ -43,13 +43,13 @@ public interface IUserBlockRepository extends R2dbcRepository<UserBlock, String>
     Flux<UserBlock> findDistinctLatestUnblocks();
 
     @Query("""
-            SELECT *
-            FROM tb_user_block
-            WHERE blocked_at IS NOT NULL
-            AND unblocked_at IS NULL
-            AND user_id = :userId::uuid
-            ORDER BY blocked_at DESC
-            LIMIT 1
+    SELECT *
+    FROM tb_user_block
+    WHERE blocked_at IS NOT NULL
+    AND (unblocked_at IS NULL OR unblock_reason = '')
+    AND user_id = :userId::uuid
+    ORDER BY blocked_at DESC
+    LIMIT 1
     """)
     Mono<UserBlock> findLatestActiveBlocks(String userId);
 

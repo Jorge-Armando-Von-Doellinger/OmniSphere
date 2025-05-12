@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.entity.OldUser;
 import omnisphere.microsservices.User.core.entity.history.UserHistory;
+import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
 import omnisphere.microsservices.User.core.repository.IUserUpdateRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
@@ -23,7 +24,12 @@ public class ActiveUserService implements IActiveUserService {
 
     @Override
     public Mono<User> delete(String userId, @NotBlank @NotNull String reason) {
-        return null;
+        return userRepository.findById(userId)
+                .switchIfEmpty(Mono.error(EntityNotFoundException::new))
+                .flatMap(u ->
+                        userRepository.deleteById(userId)
+                        .then(Mono.just(u))
+                );
     }
 
     @Override
@@ -63,6 +69,6 @@ public class ActiveUserService implements IActiveUserService {
     ///  Pending - modify the repository
     @Override
     public Flux<User> findUsersBlocked() {
-        return null;
+        return userRepository.findAllBlocked();
     }
 }

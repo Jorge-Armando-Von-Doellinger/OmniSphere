@@ -3,10 +3,10 @@
 i=1  # Inicia a variável i
 
 # Loop para tentar criar até 100 usuários
-while [ $i -lt 100 ]; do
-    # Gerar valores aleatórios para username e email (usando UUID)
-    USERNAME="user_$i"
-    EMAIL="user_$i@example.com"
+while [ $i -le 100 ]; do
+    # Gerar valores aleatórios para username e email usando UUID
+    USERNAME="user_$(uuidgen)"
+    EMAIL="user_$(uuidgen)@example.com"
 
     # Inicializa a variável USER_ID
     USER_ID=""

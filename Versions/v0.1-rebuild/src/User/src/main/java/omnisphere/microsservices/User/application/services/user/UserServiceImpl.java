@@ -1,8 +1,8 @@
 package omnisphere.microsservices.User.application.services.user;
 
 import lombok.AllArgsConstructor;
-import omnisphere.microsservices.User.application.exception.UserNotFoundException;
 import omnisphere.microsservices.User.application.mappers.UserMapper;
+import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
 import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.repository.IUserRepository;
@@ -40,8 +40,7 @@ public class UserServiceImpl implements IUserService {
     @Transactional
     public Mono<User> delete(String userId) {
         return findById(userId)
-                .flatMap(u -> repository
-                        .deleteById(userId)
+                .flatMap(u -> repository.deleteById(userId)
                         .then(Mono.just(u)));
     }
 
@@ -49,7 +48,7 @@ public class UserServiceImpl implements IUserService {
     @Transactional
     public Mono<User> findById(String userId) {
         return repository.findById(userId)
-                .switchIfEmpty(Mono.error(UserNotFoundException::new));
+                .switchIfEmpty(Mono.error(EntityNotFoundException::new));
     }
 
     @Override
@@ -57,7 +56,7 @@ public class UserServiceImpl implements IUserService {
         return repository.findByEmail(email).map(user ->
                 cryptographyService.verify(password, user.getPassword())
                     ? user : null // If is valid, return user. Else, return null!
-        ).switchIfEmpty(Mono.error(UserNotFoundException::new));
+        ).switchIfEmpty(Mono.error(EntityNotFoundException::new));
     }
 
 }

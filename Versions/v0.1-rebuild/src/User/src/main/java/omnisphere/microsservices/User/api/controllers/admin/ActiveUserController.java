@@ -1,9 +1,7 @@
 package omnisphere.microsservices.User.api.controllers.admin;
 
 import jakarta.validation.constraints.NotNull;
-import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
-import omnisphere.microsservices.User.api.requests.SensitiveRequest;
 import omnisphere.microsservices.User.application.dto.UserDTO;
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.entity.history.UserHistory;

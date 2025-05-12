@@ -22,7 +22,7 @@ spring:
         enabled: true
         locations: classpath:/db/sql/migrations
     elasticsearch:
-        uris: http://localhost:9200
+        uri: http://localhost:9200
     datasource:
         url: jdbc:postgresql://localhost:5432/users_database
         username: ${PG_USER}

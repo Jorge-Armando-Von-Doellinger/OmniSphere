@@ -7,5 +7,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableReactiveEl
 @Configuration
 @EnableElasticsearchRepositories("omnisphere.microsservices.User.infrastructure.logging.elasticsearch.interfaces.repository")
 @EnableReactiveElasticsearchRepositories("omnisphere.microsservices.User.infrastructure.logging.elasticsearch.interfaces.repository")
+
 public class ElasticSearchConfig {
+    public String uri;
 }

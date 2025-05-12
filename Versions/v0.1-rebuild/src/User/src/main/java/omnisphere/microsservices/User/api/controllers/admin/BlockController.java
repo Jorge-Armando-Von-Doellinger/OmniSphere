@@ -1,7 +1,6 @@
 package omnisphere.microsservices.User.api.controllers.admin;
 
 import lombok.AllArgsConstructor;
-import omnisphere.microsservices.User.api.requests.SensitiveRequest;
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockService;
 import org.springframework.http.ResponseEntity;

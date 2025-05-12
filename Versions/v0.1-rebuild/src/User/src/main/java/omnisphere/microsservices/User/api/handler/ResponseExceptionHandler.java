@@ -1,7 +1,7 @@
 package omnisphere.microsservices.User.api.handler;
 
 import omnisphere.microsservices.User.api.exceptions.MissingHeadersException;
-import omnisphere.microsservices.User.application.exception.UserNotFoundException;
+import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
 import omnisphere.microsservices.User.core.exceptions.InvalidDataException;
 import omnisphere.microsservices.User.core.exceptions.UserWithoutAccessException;
 import omnisphere.microsservices.User.infrastructure.exceptions.FailedToSaveToDatabase;
@@ -17,8 +17,8 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<String> invalidInputHandle(InvalidDataException ex) {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(ex.getMessage());
     }
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<String> invalidInputHandle(UserNotFoundException ex) {
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<String> invalidInputHandle(EntityNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 

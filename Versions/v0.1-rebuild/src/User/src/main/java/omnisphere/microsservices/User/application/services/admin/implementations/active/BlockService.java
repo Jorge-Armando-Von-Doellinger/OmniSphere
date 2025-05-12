@@ -31,10 +31,10 @@ public class BlockService implements IBlockService {
     public Mono<UserBlock> unblock(String userId, String reason) {
         return blockRepository.findLatestActiveBlocks(userId)
                 .switchIfEmpty(Mono.error(new EntityNotFoundException("Cannot do a unblock, because don't have a active block in this userId")))
-                .map(block -> {
+                .flatMap(block -> {
                     block.setUnblockReason(reason);
                     block.setUnblockedAt(LocalDateTime.now());
-                    return block;
+                    return blockRepository.save(block);
                 });
     }
 
