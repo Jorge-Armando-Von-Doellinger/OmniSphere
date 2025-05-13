@@ -9,13 +9,24 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
-@AllArgsConstructor
+//@AllArgsConstructor
 public class LoggingService implements ILogger {
+    public LoggingService(ILogRepository repository) {
+        this.repository = repository;
+        System.out.println("batata");
+    }
+
     private final ILogRepository repository;
 
     @Override
     public Mono<Log> log(Log log) {
-        return repository.save(log);
+        try {
+            System.out.println("Loginng");
+            return repository.save(log);
+        } catch (Throwable a) {
+            System.out.println("batatatwasdwasdwasdwasdwasdwasd \n \n \n");
+            return null;
+        }
     }
 
     @Override

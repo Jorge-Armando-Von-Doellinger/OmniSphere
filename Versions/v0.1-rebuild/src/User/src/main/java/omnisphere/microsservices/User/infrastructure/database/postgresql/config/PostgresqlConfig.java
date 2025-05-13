@@ -28,3 +28,7 @@ public class PostgresqlConfig {
         return new R2dbcEntityTemplate(connectionFactory);
     }
 }
+
+
+
+

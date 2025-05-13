@@ -5,8 +5,13 @@ import omnisphere.microsservices.User.core.enums.ErrorLevel;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Date;
+
 
 @Data
 @Document(indexName = "logs_microservice-v0.1-rebuild")
@@ -33,7 +38,8 @@ public class Log {
 
     @Setter(AccessLevel.NONE)
     @CreatedDate
-    private LocalDateTime createdAt;
+    @Field(type = FieldType.Date, name = "@timestamp")
+    private Instant createdAt = Instant.now();
 
     private String getRootCauseMessage(Throwable ex) {
         Throwable cause = ex;

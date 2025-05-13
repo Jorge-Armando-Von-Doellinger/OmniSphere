@@ -1,20 +1,21 @@
 package omnisphere.microsservices.User.api.config;
 
 import lombok.AllArgsConstructor;
-import omnisphere.microsservices.User.api.handler.CurrentUserArgumentResolver;
+
+import omnisphere.microsservices.User.api.resolvers.CurrentUserArgumentResolver;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.reactive.config.WebFluxConfigurer;
+import org.springframework.web.reactive.result.method.annotation.ArgumentResolverConfigurer;
+
 
 @Configuration
-@EnableWebMvc
 @AllArgsConstructor
-public class WebResolverConfig implements WebMvcConfigurer {
-    private final CurrentUserArgumentResolver currentUserArgumentResolver;
+public class WebResolverConfig implements WebFluxConfigurer {
+    private final CurrentUserArgumentResolver resolver;
 
     @Override
-    public void addArgumentResolvers(java.util.List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(currentUserArgumentResolver);
+    public void configureArgumentResolvers(ArgumentResolverConfigurer configurer) {
+        configurer.addCustomResolver(resolver);
     }
+
 }

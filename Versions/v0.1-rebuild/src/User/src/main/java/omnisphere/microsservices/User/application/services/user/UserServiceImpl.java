@@ -1,6 +1,7 @@
 package omnisphere.microsservices.User.application.services.user;
 
 import lombok.AllArgsConstructor;
+import omnisphere.microsservices.User.application.exception.PartialInputException;
 import omnisphere.microsservices.User.application.mappers.UserMapper;
 import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
 import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
@@ -21,6 +22,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     @Transactional
     public Mono<User> create(User user) {
+        if (user.getEmail() == null || user.getPassword() == null || user.getUsername() == null) throw new PartialInputException();;
         user.setPassword(cryptographyService.encrypt(user.getPassword()));
         return repository.save(user);
     }
