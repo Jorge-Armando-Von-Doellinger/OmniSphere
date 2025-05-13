@@ -1,4 +1,4 @@
-package omnisphere.microsservices.User.core.entity;
+package omnisphere.microsservices.User.core.entity.fields;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

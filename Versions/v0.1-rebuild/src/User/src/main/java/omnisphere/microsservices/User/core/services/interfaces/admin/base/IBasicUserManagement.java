@@ -1,6 +1,6 @@
 package omnisphere.microsservices.User.core.services.interfaces.admin.base;
 
-import omnisphere.microsservices.User.core.entity.UserFields;
+import omnisphere.microsservices.User.core.entity.fields.UserFields;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

@@ -3,9 +3,9 @@ package omnisphere.microsservices.User.application.services.admin.implementation
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.entity.history.UserHistory;
-import omnisphere.microsservices.User.core.repository.IUserBlockRepository;
-import omnisphere.microsservices.User.core.repository.IUserRepository;
-import omnisphere.microsservices.User.core.repository.IUserUpdateRepository;
+import omnisphere.microsservices.User.core.repository.block.IUserBlockRepository;
+import omnisphere.microsservices.User.core.repository.user.IUserRepository;
+import omnisphere.microsservices.User.core.repository.oldUser.IOldUserRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class HistoryService implements IHistoryService<UserHistory> {
     private final IUserRepository userRepository;
-    private final IUserUpdateRepository updateRepository;
+    private final IOldUserRepository updateRepository;
     private final IUserBlockRepository blockRepository;
 
     /// Heavy operation! Please, use with care

@@ -3,7 +3,9 @@ package omnisphere.microsservices.User.application.services.admin.implementation
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.history.UserRemovedHistory;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserRemoved;
-import omnisphere.microsservices.User.core.repository.*;
+import omnisphere.microsservices.User.core.repository.block.IUserBlockRemovedRepository;
+import omnisphere.microsservices.User.core.repository.oldUser.IOldUserRemovedRepository;
+import omnisphere.microsservices.User.core.repository.user.IUserRemovedRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -13,7 +15,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class RemovedHistoryService implements IHistoryService<UserRemovedHistory> {
     private final IUserRemovedRepository userRepository;
-    private final IUserUpdateRemovedRepository updateRepository;
+    private final IOldUserRemovedRepository updateRepository;
     private final IUserBlockRemovedRepository blockRepository;
 
     /// Heavy operation! Please, use with care

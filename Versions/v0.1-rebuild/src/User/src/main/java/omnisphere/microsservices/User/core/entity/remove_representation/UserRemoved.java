@@ -1,8 +1,7 @@
 package omnisphere.microsservices.User.core.entity.remove_representation;
 
 import lombok.*;
-import omnisphere.microsservices.User.core.entity.User;
-import omnisphere.microsservices.User.core.entity.UserFields;
+import omnisphere.microsservices.User.core.entity.fields.UserFields;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;

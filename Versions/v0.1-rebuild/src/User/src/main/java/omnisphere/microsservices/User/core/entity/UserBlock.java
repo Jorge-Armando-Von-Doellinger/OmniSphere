@@ -1,12 +1,11 @@
 package omnisphere.microsservices.User.core.entity;
 
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
+import omnisphere.microsservices.User.core.entity.fields.BlockFields;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data

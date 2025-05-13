@@ -1,4 +1,4 @@
-package omnisphere.microsservices.User.core.repository;
+package omnisphere.microsservices.User.core.repository.user;
 
 import omnisphere.microsservices.User.core.entity.User;
 import org.springframework.data.r2dbc.repository.Query;

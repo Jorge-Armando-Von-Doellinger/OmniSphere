@@ -2,9 +2,8 @@ package omnisphere.microsservices.User.application.services.admin.implementation
 
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserBlockRemoved;
-import omnisphere.microsservices.User.core.repository.IUserBlockRemovedRepository;
+import omnisphere.microsservices.User.core.repository.block.IUserBlockRemovedRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockRemovedService;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

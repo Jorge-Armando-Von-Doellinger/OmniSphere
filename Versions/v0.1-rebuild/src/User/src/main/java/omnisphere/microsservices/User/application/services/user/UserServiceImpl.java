@@ -5,7 +5,7 @@ import omnisphere.microsservices.User.application.mappers.UserMapper;
 import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
 import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
 import omnisphere.microsservices.User.core.entity.User;
-import omnisphere.microsservices.User.core.repository.IUserRepository;
+import omnisphere.microsservices.User.core.repository.user.IUserRepository;
 import omnisphere.microsservices.User.core.services.interfaces.cryptography.ICryptographyService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

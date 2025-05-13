@@ -1,4 +1,4 @@
-package omnisphere.microsservices.User.core.repository;
+package omnisphere.microsservices.User.core.repository.user;
 
 import omnisphere.microsservices.User.core.entity.remove_representation.UserRemoved;
 import org.springframework.data.r2dbc.repository.Query;

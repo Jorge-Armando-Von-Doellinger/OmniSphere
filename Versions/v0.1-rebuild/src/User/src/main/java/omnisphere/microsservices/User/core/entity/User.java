@@ -1,12 +1,9 @@
 package omnisphere.microsservices.User.core.entity;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import omnisphere.microsservices.User.core.entity.fields.UserFields;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;

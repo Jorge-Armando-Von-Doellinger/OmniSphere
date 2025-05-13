@@ -3,10 +3,9 @@ package omnisphere.microsservices.User.application.services.admin.implementation
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
-import omnisphere.microsservices.User.core.repository.IUserBlockRepository;
-import omnisphere.microsservices.User.core.repository.IUserRepository;
+import omnisphere.microsservices.User.core.repository.block.IUserBlockRepository;
+import omnisphere.microsservices.User.core.repository.user.IUserRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockService;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

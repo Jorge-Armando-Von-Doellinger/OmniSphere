@@ -7,8 +7,8 @@ import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.entity.OldUser;
 import omnisphere.microsservices.User.core.entity.history.UserHistory;
 import omnisphere.microsservices.User.core.exceptions.EntityNotFoundException;
-import omnisphere.microsservices.User.core.repository.IUserRepository;
-import omnisphere.microsservices.User.core.repository.IUserUpdateRepository;
+import omnisphere.microsservices.User.core.repository.user.IUserRepository;
+import omnisphere.microsservices.User.core.repository.oldUser.IOldUserRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IHistoryService;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IActiveUserService;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class ActiveUserService implements IActiveUserService {
     private final IUserRepository userRepository;
-    private final IUserUpdateRepository updateRepository;
+    private final IOldUserRepository updateRepository;
     private final IHistoryService<UserHistory> historyService;
 
     @Override

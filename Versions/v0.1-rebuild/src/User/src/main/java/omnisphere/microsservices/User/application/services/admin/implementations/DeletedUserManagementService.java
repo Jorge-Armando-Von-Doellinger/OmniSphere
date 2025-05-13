@@ -3,8 +3,8 @@ package omnisphere.microsservices.User.application.services.admin.implementation
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserRemoved;
 import omnisphere.microsservices.User.core.entity.remove_representation.OldUserRemoved;
-import omnisphere.microsservices.User.core.repository.IUserRemovedRepository;
-import omnisphere.microsservices.User.core.repository.IUserUpdateRemovedRepository;
+import omnisphere.microsservices.User.core.repository.user.IUserRemovedRepository;
+import omnisphere.microsservices.User.core.repository.oldUser.IOldUserRemovedRepository;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IRemovedUserManagementService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class DeletedUserManagementService implements IRemovedUserManagementService {
     private final IUserRemovedRepository repository;
-    private final IUserUpdateRemovedRepository updateRepository;
+    private final IOldUserRemovedRepository updateRepository;
 
     @Override
     public Mono<UserRemoved> findByUserId(String identifier) {

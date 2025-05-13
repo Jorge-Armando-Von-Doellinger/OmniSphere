@@ -1,14 +1,11 @@
-package omnisphere.microsservices.User.core.repository;
+package omnisphere.microsservices.User.core.repository.block;
 
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.UUID;
 
 /// Record all blocks made on the user(s) - OBS: CANNOT BE TWO OR MORE ACTIVE BLOCKS IN THE SAME USER_ID
 

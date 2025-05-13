@@ -1,4 +1,4 @@
-package omnisphere.microsservices.User.core.repository;
+package omnisphere.microsservices.User.core.repository.block;
 
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserBlockRemoved;

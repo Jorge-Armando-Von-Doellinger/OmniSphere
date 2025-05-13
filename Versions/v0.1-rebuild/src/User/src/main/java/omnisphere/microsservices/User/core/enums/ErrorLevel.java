@@ -1,7 +1,7 @@
 package omnisphere.microsservices.User.core.enums;
 
 public enum ErrorLevel {
-    ALERT,
+    INFO,
     EXPECTED_ERROR,
     UNEXPECTED_ERROR,
     CRITICAL

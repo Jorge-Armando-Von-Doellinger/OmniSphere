@@ -1,6 +1,7 @@
 package omnisphere.microsservices.User.core.entity;
 
 import lombok.*;
+import omnisphere.microsservices.User.core.entity.fields.UserFields;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;

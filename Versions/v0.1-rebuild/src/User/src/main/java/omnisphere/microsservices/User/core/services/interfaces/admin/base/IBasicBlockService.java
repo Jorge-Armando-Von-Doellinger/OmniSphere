@@ -1,10 +1,8 @@
 package omnisphere.microsservices.User.core.services.interfaces.admin.base;
 
-import omnisphere.microsservices.User.core.entity.BlockFields;
+import omnisphere.microsservices.User.core.entity.fields.BlockFields;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 public interface IBasicBlockService<TBlock extends BlockFields> {
     /// Return all blocks of this user (active or not)
