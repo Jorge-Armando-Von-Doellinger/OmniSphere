@@ -8,6 +8,7 @@ import omnisphere.microsservices.User.core.services.interfaces.user.IUserService
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.repository.user.IUserRepository;
 import omnisphere.microsservices.User.core.services.interfaces.cryptography.ICryptographyService;
+import omnisphere.microsservices.User.infrastructure.exceptions.FailedToSaveToDatabase;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
@@ -24,7 +25,9 @@ public class UserServiceImpl implements IUserService {
     public Mono<User> create(User user) {
         if (user.getEmail() == null || user.getPassword() == null || user.getUsername() == null) throw new PartialInputException();;
         user.setPassword(cryptographyService.encrypt(user.getPassword()));
-        return repository.save(user);
+        return repository.save(user)
+                .onErrorMap(x ->
+                    new FailedToSaveToDatabase("Email/Username in use! Please, insert a new Email/Username!", x));
     }
 
     @Override
@@ -34,7 +37,8 @@ public class UserServiceImpl implements IUserService {
                 .flatMap(u -> {
                     var password = cryptographyService.encrypt(partialUser.getPassword());
                     u.update(partialUser.getUsername(), partialUser.getEmail(), password);
-                    return repository.save(u);
+                    return repository.save(u).onErrorMap(x ->
+                            new FailedToSaveToDatabase("Email/Username in use! Please, insert a new Email/Username!", x));
                 });
     }
 

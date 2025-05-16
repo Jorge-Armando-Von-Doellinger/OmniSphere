@@ -2,6 +2,8 @@ package omnisphere.microsservices.User.api.controllers.admin;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import omnisphere.microsservices.User.api.annotations.CurrentAdmin;
+import omnisphere.microsservices.User.api.annotations.RequiredAdmin;
 import omnisphere.microsservices.User.application.dto.UserDTO;
 import omnisphere.microsservices.User.core.entity.User;
 import omnisphere.microsservices.User.core.entity.history.UserHistory;
@@ -16,6 +18,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/admin-management")
 @AllArgsConstructor
+@RequiredAdmin
 public class ActiveUserController {
     private final IActiveUserService userManagementService;
     private final IHistoryService<UserHistory> activeHistoryService;
@@ -53,13 +56,15 @@ public class ActiveUserController {
     }
     // Necessario testes em cima!
     @PatchMapping("/{userId}")
-    public ResponseEntity<Mono<User>> updateUser(@PathVariable String userId, @RequestBody @NotNull UserDTO dto) {
+    public ResponseEntity<Mono<User>> updateUser(@PathVariable String userId,
+                                                 @RequestBody @NotNull UserDTO dto) {
         var partialUser = new User(dto.username(), dto.email(), dto.password()); // Pior performanace! Nova instancia = mais memoria utilizada!
         return ResponseEntity.ok(userService.update(userId, partialUser));
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<Mono<User>> deleteUser(@PathVariable String userId, @RequestBody String reason) {
+    public ResponseEntity<Mono<User>> deleteUser(@PathVariable String userId,
+                                                 @RequestBody String reason) {
         return ResponseEntity.ok(userManagementService.delete(userId, reason));
     }
 

@@ -1,45 +1,38 @@
 #!/bin/bash
 
-i=1  # Inicia a variável i
+i=1  # Contador de usuários
 
-# Loop para tentar criar até 100 usuários
+# Criar até 100 usuários
 while [ $i -le 100 ]; do
-    # Gerar valores aleatórios para username e email usando UUID
-    USERNAME="user_$(uuidgen)"
-    EMAIL="user_$(uuidgen)@example.com"
+    # Gera username e email aleatórios
+    UUID=$(uuidgen)
+    USERNAME="user_$UUID"
+    EMAIL="user_${UUID}@example.com"
+    PASSWORD="senhaSegura123"
+    
+    echo "[$(date +'%T')] Criando usuário $i com username $USERNAME"
 
-    # Inicializa a variável USER_ID
-    USER_ID=""
+    # Envia requisição
+    RESPONSE=$(curl -s -X POST http://localhost:5000/api/user \
+        -H "Content-Type: application/json" \
+        -H "X-USER-IDENTIFIER-STRINGVALUE: abc" \
+        -d "{
+              \"username\": \"$USERNAME\",
+              \"email\": \"$EMAIL\",
+              \"password\": \"$PASSWORD\"
+            }")
 
-    # Loop para tentar criar o usuário até obter um ID válido
-    while [ -z "$USER_ID" ]; do
-        USER_RESPONSE=$(curl -s -X POST http://localhost:5000/api/user \
-          -H "Content-Type: application/json" \
-          -H "X-USER-IDENTIFIER-STRINGVALUE: abc" \
-          -d "{
-            \"username\": \"$USERNAME\",
-            \"email\": \"$EMAIL\",
-            \"password\": \"senhaSegura123\"
-          }")
-        
-        # Capturar o ID da resposta
-        USER_ID=$(echo "$USER_RESPONSE" | jq -e -r '.id' 2>/dev/null)
+    # Extrai ID com jq
+    USER_ID=$(echo "$RESPONSE" | jq -e -r '.id' 2>/dev/null)
 
-        # Se um ID for encontrado, exibe uma mensagem
-        if [ -n "$USER_ID" ]; then
-            echo "Usuário criado com ID: $USER_ID"
-            # Atualizar username e email com o ID retornado
-            USERNAME="user_$USER_ID"
-            EMAIL="user_$USER_ID@example.com"
-            echo "Nome de usuário e e-mail atualizados com base no ID: $USER_ID"
-        else
-            echo "Tentativa falhou, tentando novamente..."
-        fi
-    done
-
-    # Incrementa o contador de tentativas
-    i=$((i + 1))  # Aumenta o valor de i em 1
+    if [ -n "$USER_ID" ]; then
+        echo "✅ [$i] Usuário criado com sucesso — ID: $USER_ID"
+        ((i++))
+    else
+        echo "❌ Falha ao criar usuário. Tentando novamente..."
+        sleep 1
+    fi
 done
 
-echo "Processo concluído após $i tentativas."
+echo "🎉 Concluído: $((i-1)) usuários criados com sucesso."
 

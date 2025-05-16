@@ -32,10 +32,10 @@ logging:
     level:
         org.springframework.data.r2dbc.core.R2dbcEntityTemplate: ERROR
         org.springframework.r2dbc.core.DatabaseClient: ERROR
-        org.springframework: DEBUG
+        org.springframework: ERROR
         org.hibernate: ERROR
-        root: DEBUG
-        org.springframework.web: DEBUG
+        root: ERROR
+        org.springframework.web: ERROR
         org.flywaydb: ERROR
         org.apache.coyote: ERROR # Validar o motivos dos erros sem isso...
         org.apache.tomcat: ERROR # Validar o motivos dos erros sem isso...

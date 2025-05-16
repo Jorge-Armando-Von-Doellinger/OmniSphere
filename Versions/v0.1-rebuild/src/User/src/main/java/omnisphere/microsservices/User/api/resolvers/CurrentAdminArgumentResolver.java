@@ -1,5 +1,6 @@
 package omnisphere.microsservices.User.api.resolvers;
 
+import omnisphere.microsservices.User.api.annotations.CurrentAdmin;
 import omnisphere.microsservices.User.api.annotations.CurrentUser;
 import omnisphere.microsservices.User.api.exceptions.MissingHeadersException;
 import org.springframework.core.MethodParameter;
@@ -13,7 +14,7 @@ import reactor.core.publisher.Mono;
 public class CurrentAdminArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.hasParameterAnnotation(CurrentUser.class)
+        return parameter.hasParameterAnnotation(CurrentAdmin.class)
                 && parameter.getParameterType().equals(String.class);
     }
 
