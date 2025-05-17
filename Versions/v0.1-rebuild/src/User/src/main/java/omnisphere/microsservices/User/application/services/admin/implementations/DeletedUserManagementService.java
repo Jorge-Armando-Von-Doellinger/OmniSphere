@@ -40,9 +40,9 @@ public class DeletedUserManagementService implements IRemovedUserManagementServi
     public Flux<OldUserRemoved> findUpdatesByUserId(String userId) {
         return updateRepository.findByUserId(userId);
     }
-    ///  Needs a repair - modify the repository!
+
     @Override
     public Flux<UserRemoved> findUsersBlocked() {
-        return null;
+        return repository.findAllBlocked();
     }
 }

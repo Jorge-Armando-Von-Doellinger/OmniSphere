@@ -18,7 +18,7 @@ import java.util.UUID;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 
-@Table("tb_users_deleted")
+@Table("tb_user_removed")
 public class UserRemoved extends UserFields
 {
     @Id

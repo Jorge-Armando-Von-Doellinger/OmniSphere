@@ -1,6 +1,7 @@
 package omnisphere.microsservices.User.api.controllers.admin;
 
 import lombok.AllArgsConstructor;
+import omnisphere.microsservices.User.api.annotations.RequiredAdmin;
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockService;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +12,12 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/admin-management/block")
 @AllArgsConstructor
+@RequiredAdmin
 public class BlockController {
     private final IBlockService blockService;
 
     @PostMapping("/{userId}")
     public ResponseEntity<Mono<UserBlock>> blockUser(@PathVariable String userId, @RequestBody String reason) {
-        System.out.println("Razão: " + reason + ", UserId: " + userId);
         Mono<UserBlock> result = blockService.block(userId, reason);
         return ResponseEntity.ok(result);
     }

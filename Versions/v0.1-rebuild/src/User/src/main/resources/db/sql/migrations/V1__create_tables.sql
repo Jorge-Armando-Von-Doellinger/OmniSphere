@@ -1,5 +1,6 @@
 SET search_path TO public;
-DROP TABLE IF EXISTS tb_user, tb_user_block, tb_old_user, tb_old_user_removed, tb_user_block_removed, tb_users_removed CASCADE;
+
+--DROP TABLE IF EXISTS tb_user, tb_user_block, tb_old_user, tb_old_user_removed, tb_user_block_removed, tb_users_removed CASCADE;
 
 CREATE TABLE IF NOT EXISTS tb_user (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

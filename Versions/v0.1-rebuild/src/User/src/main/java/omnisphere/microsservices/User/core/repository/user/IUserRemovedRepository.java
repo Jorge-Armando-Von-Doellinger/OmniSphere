@@ -11,6 +11,15 @@ import reactor.core.publisher.Mono;
 public interface IUserRemovedRepository extends R2dbcRepository<UserRemoved, String> {
     Flux<UserRemoved> findByEmail(String email);
     Flux<UserRemoved> findByUsername(String username);
-    @Query("SELECT * FROM tb_user_update WHERE user_id = :userId")
+
     Mono<UserRemoved> findByUserId(String userId);
+
+
+    @Query("""
+    SELECT u.*
+    FROM tb_user u
+    RIGHT JOIN tb_user_block_removed b ON u.remove_id = b.id
+    WHERE unblock_reason IS NULL OR unblock_reason = '';
+    """)
+    Flux<UserRemoved> findAllBlocked();
 }

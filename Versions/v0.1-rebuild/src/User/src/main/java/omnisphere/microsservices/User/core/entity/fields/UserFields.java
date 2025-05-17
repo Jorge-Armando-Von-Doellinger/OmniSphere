@@ -8,8 +8,15 @@ import lombok.Data;
 import org.springframework.data.relational.core.mapping.Column;
 
 @Data
-@AllArgsConstructor
-public abstract class UserFields {
+public abstract class UserFields extends BasicFields {
+
+    public UserFields(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+    public UserFields() {}
+
     @NotNull
     @NotBlank(message = "Username is required")
     @Column("username")

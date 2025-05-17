@@ -1,6 +1,7 @@
 package omnisphere.microsservices.User.api.controllers.admin;
 
 import lombok.AllArgsConstructor;
+import omnisphere.microsservices.User.api.annotations.RequiredAdmin;
 import omnisphere.microsservices.User.core.entity.history.UserRemovedHistory;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserRemoved;
 import omnisphere.microsservices.User.core.entity.remove_representation.OldUserRemoved;
@@ -18,6 +19,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/admin-management/users-removed")
 @AllArgsConstructor
+@RequiredAdmin
 public class RemovedUserController {
     private final IRemovedUserManagementService removedUserManagementService;
     private final IBlockRemovedService blockRemovedService;

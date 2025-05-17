@@ -1,6 +1,7 @@
 package omnisphere.microsservices.User.api.controllers.admin;
 
 import lombok.AllArgsConstructor;
+import omnisphere.microsservices.User.api.annotations.RequiredAdmin;
 import omnisphere.microsservices.User.core.entity.UserBlock;
 import omnisphere.microsservices.User.core.entity.remove_representation.UserBlockRemoved;
 import omnisphere.microsservices.User.core.services.interfaces.admin.IBlockRemovedService;
@@ -12,6 +13,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/admin-management/block-removed")
 @AllArgsConstructor
+@RequiredAdmin
 public class BlocKRemovedController {
     private final IBlockRemovedService blockRemovedService;
     public ResponseEntity<Flux<UserBlockRemoved>> getBlocks() {

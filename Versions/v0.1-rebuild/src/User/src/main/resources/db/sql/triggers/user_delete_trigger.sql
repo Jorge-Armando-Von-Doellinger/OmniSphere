@@ -29,7 +29,6 @@ BEGIN
         INSERT INTO tb_old_user (user_id, username, email, password, created_at, updated_at)
         VALUES (OLD.id, OLD.username, OLD.email, OLD.password, OLD.created_at, OLD.updated_at);
 
-
         RETURN NEW;
     END IF;
 

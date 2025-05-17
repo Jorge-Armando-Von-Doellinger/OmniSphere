@@ -10,7 +10,16 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface IUserRepository extends R2dbcRepository<User, String> {
     Mono<User> findByEmail(String email);
+
+
     Mono<User> findByUsername(String username); // Alterar
+
+    @Query("""
+            SELECT * 
+            FROM tb_user
+            WHERE username LIKE :username
+            """)
+    Flux<User> findWhereContainsUsername(String username);
 
     @Query("""
     SELECT u.*

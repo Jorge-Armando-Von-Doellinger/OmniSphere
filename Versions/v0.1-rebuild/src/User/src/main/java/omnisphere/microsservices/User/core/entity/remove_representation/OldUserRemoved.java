@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import omnisphere.microsservices.User.core.entity.fields.UserFields;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -23,21 +21,13 @@ public class OldUserRemoved extends UserFields {
 
     @Id
     @Column("id")
-    private Long deleteId;
+    private Long id;
 
     @Column("old_id")
-    private Long updateId;
+    private Long oldId;
 
     @Column("remove_id")
-    private UUID userDeleteId;
-
-    @CreatedDate
-    @Column("created_at")
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column("updated_at")
-    private LocalDateTime updatedAt;
+    private UUID userId;
 
     @Column("deleted_at")
     private LocalDateTime deletedAt;

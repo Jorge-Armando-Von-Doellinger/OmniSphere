@@ -13,7 +13,6 @@ import reactor.core.publisher.Mono;
 public class LoggingService implements ILogger {
     public LoggingService(ILogRepository repository) {
         this.repository = repository;
-        System.out.println("batata");
     }
 
     private final ILogRepository repository;
@@ -21,10 +20,8 @@ public class LoggingService implements ILogger {
     @Override
     public Mono<Log> log(Log log) {
         try {
-            System.out.println("Loginng");
             return repository.save(log);
         } catch (Throwable a) {
-            System.out.println("batatatwasdwasdwasdwasdwasdwasd \n \n \n");
             return null;
         }
     }

@@ -20,18 +20,13 @@ public class User extends UserFields {
     public User(String username, String email, String password) {
         super(username, email, password);
     }
-
+    public User() { }
     @Id
     @Setter(AccessLevel.NONE)
     @Column("id")
     private UUID id;
 
-    @CreatedDate
-    @Column("created_at")
-    private LocalDateTime createdAt;
 
-    @Column("updated_at")
-    private LocalDateTime updatedAt;
 
     // Método para atualizar os dados do usuário
     public void update(String username, String email, String password) {

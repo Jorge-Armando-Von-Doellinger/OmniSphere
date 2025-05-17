@@ -28,6 +28,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux") // ✅ Mono/Flux
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.security:spring-security-core:6.2.3")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+	implementation("io.lettuce:lettuce-core")
 
 	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.2.RELEASE")

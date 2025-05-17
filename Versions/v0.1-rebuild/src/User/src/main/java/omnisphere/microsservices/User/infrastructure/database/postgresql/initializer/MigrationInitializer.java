@@ -14,19 +14,19 @@ import java.util.Map;
 
 @Configuration
 public class MigrationInitializer {
-    private final String PATH = "db/sql/migrations/";
-    private final DatabaseClient client;
+    private final String MIGRATIONS_PATH = "db/sql/migrations/";
+    private final String TRIGGERS_PATH = "db/sql/triggers/";
 
-    public MigrationInitializer(DatabaseClient client) {
-        this.client = client;
+    public MigrationInitializer() {
+
     }
 
     @Bean
     public ApplicationRunner runMigrations(DatabaseClient client) {
         return args -> {
             Map<String, String> schemaToFile = Map.of(
-                     //"V1__create_tables", PATH + "V1__create_tables.sql",
-                    "V1__audit_triggers", PATH + "user_delete_trigger.sql"
+                     "V1__create_tables", MIGRATIONS_PATH + "V1__create_tables.sql",
+                    "V1__audit_triggers", TRIGGERS_PATH + "user_delete_trigger.sql"
             );
             Flux.fromIterable(schemaToFile.entrySet())
                     .concatMap(entry -> applyMigration(client, entry.getKey(), entry.getValue()))
