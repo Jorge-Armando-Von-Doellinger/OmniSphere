@@ -30,11 +30,13 @@ dependencies {
 	implementation("org.springframework.security:spring-security-core:6.2.3")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
 	implementation("io.lettuce:lettuce-core")
+	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
 	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.2.RELEASE")
 
 	implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
+	implementation("org.springframework.boot:spring-boot-starter-aop")
 
 	implementation("org.elasticsearch.client:elasticsearch-rest-high-level-client:7.10.0")
 

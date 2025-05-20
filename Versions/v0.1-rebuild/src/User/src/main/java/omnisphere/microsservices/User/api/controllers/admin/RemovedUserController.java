@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/admin-management/users-removed")
 @AllArgsConstructor
@@ -31,12 +33,12 @@ public class RemovedUserController {
     }
 
     @GetMapping("/removed")
-    public ResponseEntity<Flux<UserRemoved>> getUsersRemoved() {
+    public ResponseEntity<Mono<List<UserRemoved>>> getUsersRemoved() {
         return ResponseEntity.ok(removedUserManagementService.findAll());
     }
 
     @GetMapping("/updates/{userId}")
-    public ResponseEntity<Flux<OldUserRemoved>> getUsersUpdateDeleted(@PathVariable String userId) {
+    public ResponseEntity<Mono<List<OldUserRemoved>>> getUsersUpdateDeleted(@PathVariable String userId) {
         return ResponseEntity.ok(removedUserManagementService.findUpdatesByUserId(userId));
     }
 

@@ -3,8 +3,8 @@ package omnisphere.microsservices.User.api.controllers.user;
 import lombok.AllArgsConstructor;
 import omnisphere.microsservices.User.api.annotations.CurrentUser;
 import omnisphere.microsservices.User.application.dto.UserDTO;
-import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
 import omnisphere.microsservices.User.core.entity.User;
+import omnisphere.microsservices.User.core.services.interfaces.user.IUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -16,26 +16,30 @@ public class UserController {
     private final IUserService userService;
 
     @GetMapping
-    public ResponseEntity<Mono<User>> findById(@CurrentUser String userId) {
-        return ResponseEntity.ok(userService.findById(userId));
+    public Mono<ResponseEntity<User>> findById(@CurrentUser String userId) {
+        return userService.findById(userId)
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<Mono<User>> create(@RequestBody UserDTO dto) {
-        var partialUser = new User(dto.username(), dto.email(), dto.password());
-        var user = userService.create(partialUser);
-        return ResponseEntity.ok(user);
+    public Mono<ResponseEntity<User>> create(@RequestBody UserDTO userDto) {
+        var user = new User(userDto.username(), userDto.email(), userDto.password());
+        return userService.create(user)
+                .map(ResponseEntity::ok);
     }
 
     @PatchMapping
-    public ResponseEntity<Mono<User>> update(@RequestBody UserDTO dto, @CurrentUser String userId) {
-        var partialUser = new User(dto.username(), dto.email(), dto.password());
-        var updated = userService.update(userId, partialUser);
-        return ResponseEntity.ok(updated);
+    public Mono<ResponseEntity<User>> update(@RequestBody UserDTO dto, @CurrentUser String userId) {
+        var user = new User(dto.username(), dto.email(), dto.password());
+        return userService.update(userId, user)
+                    .map(ResponseEntity::ok);
     }
 
     @DeleteMapping
-    public ResponseEntity<Mono<User>> delete(@CurrentUser String userId) {
-        return ResponseEntity.ok(userService.delete(userId));
+    public Mono<ResponseEntity<User>> delete(@CurrentUser String userId) {
+        return userService.delete(userId)
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 }

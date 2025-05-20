@@ -22,12 +22,14 @@ public class ValidateRequiredHeadersFilter implements WebFilter {
         boolean hasAdminHeader = isValidHeader(headers.getFirst("X-ADMIN-IDENTIFIER-STRINGVALUE"));
 
         if (!hasUserHeader && !hasAdminHeader) {
-            exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-            var buffer = exchange.getResponse()
-                    .bufferFactory()
+            var response = exchange.getResponse();
+            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            response.getHeaders().add("Content-Type", "text/plain; charset=UTF-8");
+
+            var buffer = response.bufferFactory()
                     .wrap("Unauthorized: Missing required data to validate!".getBytes());
 
-            return exchange.getResponse().writeWith(Mono.just(buffer));
+            return response.writeWith(Mono.just(buffer));
         }
 
         return chain.filter(exchange);

@@ -22,6 +22,10 @@ public class ResponseExceptionHandler implements ErrorWebExceptionHandler {
     @Override
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
         var response = exchange.getResponse();
+        if (response.isCommitted() || response.getStatusCode().is4xxClientError()
+                || response.getStatusCode().is5xxServerError()) {
+            return Mono.error(ex);
+        }
         var bufferFactory = response.bufferFactory();
         response.setStatusCode(HttpStatus.BAD_REQUEST);
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);

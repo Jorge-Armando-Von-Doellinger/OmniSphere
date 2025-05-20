@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class DeletedUserManagementService implements IRemovedUserManagementService {
@@ -22,13 +24,18 @@ public class DeletedUserManagementService implements IRemovedUserManagementServi
     }
 
     @Override
-    public Flux<UserRemoved> findWhereContainsUsername(String username) {
-        return repository.findByUsername(username);
+    public Mono<List<UserRemoved>> findWhereContainsUsername(String username) {
+        return repository.findByUsername(username).collectList();
     }
 
     @Override
-    public Flux<UserRemoved> findAll() {
-        return repository.findAll();
+    public Mono<List<UserRemoved>> findAll() {
+        return repository.findAll().collectList();
+    }
+
+    @Override
+    public Mono<List<UserRemoved>> findPartition(int offset) {
+        return null;
     }
 
     @Override
@@ -37,12 +44,12 @@ public class DeletedUserManagementService implements IRemovedUserManagementServi
     }
 
     @Override
-    public Flux<OldUserRemoved> findUpdatesByUserId(String userId) {
-        return updateRepository.findByUserId(userId);
+    public Mono<List<OldUserRemoved>> findUpdatesByUserId(String userId) {
+        return updateRepository.findByUserId(userId).collectList();
     }
 
     @Override
-    public Flux<UserRemoved> findUsersBlocked() {
-        return repository.findAllBlocked();
+    public Mono<List<UserRemoved>> findUsersBlocked() {
+        return repository.findAllBlocked().collectList();
     }
 }

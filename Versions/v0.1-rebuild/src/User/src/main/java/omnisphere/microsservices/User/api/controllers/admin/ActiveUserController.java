@@ -2,7 +2,6 @@ package omnisphere.microsservices.User.api.controllers.admin;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import omnisphere.microsservices.User.api.annotations.CurrentAdmin;
 import omnisphere.microsservices.User.api.annotations.RequiredAdmin;
 import omnisphere.microsservices.User.application.dto.UserDTO;
 import omnisphere.microsservices.User.core.entity.User;
@@ -14,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin-management")
@@ -25,12 +25,12 @@ public class ActiveUserController {
     private final IUserService userService;
 
     @GetMapping
-    public ResponseEntity<Flux<User>> getUsers() {
+    public ResponseEntity<Mono<List<User>>> getUsers() {
         return ResponseEntity.ok(userManagementService.findAll());
     }
 
     @GetMapping("/blocked")
-    public ResponseEntity<Flux<User>> getUsersBlocked() {
+    public ResponseEntity<Mono<List<User>>> getUsersBlocked() {
         return ResponseEntity.ok(userManagementService.findUsersBlocked());
     }
 
@@ -40,7 +40,7 @@ public class ActiveUserController {
     }
 
     @GetMapping("/username/contains/{username}")
-    public ResponseEntity<Flux<User>> getUsersByUsername(@PathVariable String username) {
+    public ResponseEntity<Mono<List<User>>> getUsersByUsername(@PathVariable String username) {
         return ResponseEntity.ok(userManagementService.findWhereContainsUsername(username));
     }
     /// CAUTION - VERY HEAVY OPERATION | 3 CONSULTS FIND-ALL IN THE SAME SERVICE!

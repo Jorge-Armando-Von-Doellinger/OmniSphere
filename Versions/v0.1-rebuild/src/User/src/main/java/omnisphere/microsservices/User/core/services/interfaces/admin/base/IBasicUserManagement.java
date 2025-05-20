@@ -1,17 +1,22 @@
 package omnisphere.microsservices.User.core.services.interfaces.admin.base;
 
 import omnisphere.microsservices.User.core.entity.fields.UserFields;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 public interface IBasicUserManagement<TUser extends UserFields, TUserUpdate> {
+
     Mono<TUser> findByUserId(String identifier);
     /// Locate all when contains a equals username...
-    Flux<TUser> findWhereContainsUsername(String username);
-    Flux<TUser> findAll();
+    Mono<List<TUser>> findWhereContainsUsername(String username);
+    Mono<List<TUser>> findAll();
+    Mono<List<TUser>> findPartition(int offset);
 
     /// To locate all updates of this user
-    Flux<TUserUpdate> findUpdatesByUserId(String userId);
+    Mono<List<TUserUpdate>> findUpdatesByUserId(String userId);
     /// Get all users blocked - NO ACTIVE
-    Flux<TUser> findUsersBlocked();
+    Mono<List<TUser>> findUsersBlocked();
+
+
 }

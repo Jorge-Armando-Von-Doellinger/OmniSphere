@@ -1,18 +1,13 @@
 #!/bin/bash
 
-i=1  # Contador de usuários
-
-# Criar até 100 usuários
-while [ $i -le 100 ]; do
-    # Gera username e email aleatórios
+create_user() {
     UUID=$(uuidgen)
     USERNAME="user_$UUID"
     EMAIL="user_${UUID}@example.com"
     PASSWORD="senhaSegura123"
-    
-    echo "[$(date +'%T')] Criando usuário $i com username $USERNAME"
 
-    # Envia requisição
+    echo "[$(date +'%T')] Criando usuário com username $USERNAME"
+
     RESPONSE=$(curl -s -X POST http://localhost:5000/api/user \
         -H "Content-Type: application/json" \
         -H "X-USER-IDENTIFIER-STRINGVALUE: abc" \
@@ -22,17 +17,17 @@ while [ $i -le 100 ]; do
               \"password\": \"$PASSWORD\"
             }")
 
-    # Extrai ID com jq
     USER_ID=$(echo "$RESPONSE" | jq -e -r '.id' 2>/dev/null)
 
     if [ -n "$USER_ID" ]; then
-        echo "✅ [$i] Usuário criado com sucesso — ID: $USER_ID"
-        ((i++))
+        echo "✅ Usuário criado — ID: $USER_ID"
     else
-        echo "❌ Falha ao criar usuário. Tentando novamente..."
-        sleep 1
+        echo "❌ Falha ao criar usuário."
     fi
-done
+}
 
-echo "🎉 Concluído: $((i-1)) usuários criados com sucesso."
+export -f create_user
+
+# Executa 1000 vezes a função, com até 10 execuções paralelas
+seq 1 100 | parallel -j 10 create_user
 
